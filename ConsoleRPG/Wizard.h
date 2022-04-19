@@ -3,5 +3,10 @@
 class Wizard :
     public Player
 {
+public:
+	void Attack();
+	Wizard();
+	inline ~Wizard() {};
+	void PrintStats();
 };
 

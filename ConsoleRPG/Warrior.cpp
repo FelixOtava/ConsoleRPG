@@ -3,17 +3,18 @@ void Warrior::Attack()
 {
 }
 
-void Warrior::NewWar(std::string name)
+Warrior::Warrior()
 {
-	setPlayerName(name);
-	setHealth(100);
-	setAttackPower(8);
-	setAbilityPower(1);
-	setDexterity(2);
-	setInteligence(1);
+	this->playerName = "War";
+	this->health = 200;
+	this->attackPower = 35;
+	this->abilityPower = 1;
+	this->dexterity = 5;
+	this->inteligence = 1;
 }
+
 
 void Warrior::PrintStats()
 {
-	std::cout << getPlayerName() << getHealth() << getAttackPower() << getAbilityPower() << getDexterity() << getIntelignce();
+	std::cout << getPlayerName()<<"/" << getHealth() << "/" << getAttackPower() << "/" << getAbilityPower() << "/" << getDexterity() << "/" << getIntelignce()<<std::endl;
 }

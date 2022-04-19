@@ -1,8 +1,11 @@
-#include "Player.h"
 #include"Warrior.h"
+#include "Wizard.h"
 int main()
 {
-    Warrior jon;
-    jon.initializeWar("John");
-    jon.PrintStats();
+	Player* test = new Wizard;
+	Player* test1 = new Warrior;
+	test->PrintStats();
+	test1->PrintStats();
+	delete test;
+	delete test1;
 }

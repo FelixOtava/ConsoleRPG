@@ -20,29 +20,3 @@ void Player::setPlayerName(std::string name)
 {
 	this->playerName = name;
 }
-
-void Player::setHealth(int health)
-{
-	this->health = health;
-}
-
-void Player::setAttackPower(int attackPower)
-{
-	this->attackPower = attackPower;
-}
-
-void Player::setAbilityPower(int abilityPower)
-{
-	this->abilityPower = abilityPower;
-}
-
-void Player::setDexterity(int dexterity)
-{
-	this->dexterity = dexterity;
-}
-
-void Player::setInteligence(int inteligence)
-{
-	this->inteligence = inteligence;
-}
-
