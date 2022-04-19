@@ -1,7 +1,8 @@
-
-#include <iostream>
-
+#include "Player.h"
+#include"Warrior.h"
 int main()
 {
-    std::cout << "Hello World!\n";
+    Warrior jon;
+    jon.initializeWar("John");
+    jon.PrintStats();
 }
