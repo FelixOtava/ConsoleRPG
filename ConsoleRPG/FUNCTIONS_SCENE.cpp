@@ -2,6 +2,7 @@
 
 bool IntroScene1()
 {
+	PlaySound(TEXT("Main_Menu.wav"), NULL, SND_ASYNC);
 	std::cout << "		,_.                                                          ,_.\n";
 	std::cout << "		'\\cXX.==- __                                        __ -==,XXv/`\n";
 	std::cout << "		    ~=_X7~ ,/~!g=-,_.                      ,_.-=s!~L. ~TX_=~\n";
@@ -24,43 +25,45 @@ bool IntroScene1()
 	std::cout << std::endl;
 	std::cout << "Are you worthy enough to enter the dangerous world of Natas?\n";
 	std::cout << "Press 1 for Hell Yea !   ///////   Press 2 for running away like a scarry cat \n";
+	
+
 	int answer;
 	bool gameOn = false;
 	bool goOn;
 	std::cin >> answer;
-	
+
 	do {
-	switch (answer)
-	{
-	case 1:
-		gameOn = true;
-		goOn = false;
-		break;
-	case 2:
-		gameOn = false;
-		goOn = false;
-		break;
-
-	default:
-		std::cout << "Wrong key, try again\n";
-		goOn = true;
-		std::cin >> answer;
-		if (std::cin.fail())
+		switch (answer)
 		{
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "ha, ha, ha you are so funny trying to press wrong imputs, just press 1 or 2" << std::endl;
-			std::cin >> answer;
-		}
-		break;
-	}
-	} while (goOn);
-	
-	
+		case 1:
+			gameOn = true;
+			goOn = false;
+			break;
+		case 2:
+			gameOn = false;
+			goOn = false;
+			break;
 
-	
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "ha, ha, ha you are so funny trying to press wrong imputs, just press 1 or 2" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		}
+	} while (goOn);
+
+
+
 	system("cls");
 	return gameOn;
 }
+
 
 

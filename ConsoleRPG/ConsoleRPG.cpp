@@ -3,7 +3,7 @@
 
 int main()
 {
-	if (IntroScene1()==true) {
+	if (IntroScene1()) {
 		std::cout << "Here we go";
 	}
 	else {
