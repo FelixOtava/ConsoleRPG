@@ -4,9 +4,9 @@ void Wizard::Attack()
 {
 }
 
- Wizard::Wizard()
+ Wizard::Wizard(std::string name)
 {
-	this->playerName = "Wiz";
+	this->playerName = name;
 	this->health = 100;
 	this->attackPower = 1;
 	this->abilityPower = 70;

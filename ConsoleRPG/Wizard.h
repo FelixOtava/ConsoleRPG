@@ -5,7 +5,7 @@ class Wizard :
 {
 public:
 	void Attack();
-	Wizard();
+	Wizard(std::string name);// foloseste un constructor ce cere un parametru username
 	inline ~Wizard() {};
 	void PrintStats();
 };

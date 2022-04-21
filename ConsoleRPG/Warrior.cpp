@@ -3,9 +3,9 @@ void Warrior::Attack()
 {
 }
 
-Warrior::Warrior()
+Warrior::Warrior(std::string name)
 {
-	this->playerName = "War";
+	this->playerName = name;
 	this->health = 200;
 	this->attackPower = 35;
 	this->abilityPower = 1;

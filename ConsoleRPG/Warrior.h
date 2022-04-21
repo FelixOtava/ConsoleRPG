@@ -5,7 +5,7 @@ class Warrior :
 {
 public:
 	void Attack();
-	Warrior();
+	Warrior(std::string name); // foloseste un constructor ce cere un parametru username
 	inline ~Warrior() {};
 	void PrintStats();
 

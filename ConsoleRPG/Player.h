@@ -1,12 +1,11 @@
 #pragma once
-#include <iostream>
-#include <string>
+#include "FUNCTIONS_SCENE.h"
 class Player
 {
 public:
 	Player();
 	virtual ~Player();
-	//Functions
+	//Methodes
 	virtual void Attack();
 	virtual void PrintStats();
 
@@ -28,6 +27,6 @@ protected:
 	int abilityPower;
 	int dexterity;
 	int inteligence;
-
+	
 };
 
