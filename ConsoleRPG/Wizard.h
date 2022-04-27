@@ -6,7 +6,7 @@ class Wizard :
 public:
 	void Attack();
 	Wizard(std::string name);// foloseste un constructor ce cere un parametru username
-	inline ~Wizard() {};
+	inline virtual ~Wizard() {};
 	void PrintStats();
 };
 

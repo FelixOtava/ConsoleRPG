@@ -7,5 +7,6 @@
 #include<iomanip>
 
 
-
 bool IntroScene1();
+std::string IntroScene2();
+int IntroScene3(std::string userName);
