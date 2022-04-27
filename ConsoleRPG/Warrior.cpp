@@ -16,5 +16,5 @@ Warrior::Warrior(std::string name)
 
 void Warrior::PrintStats()
 {
-	std::cout << getPlayerName()<<"/" << getHealth() << "/" << getAttackPower() << "/" << getAbilityPower() << "/" << getDexterity() << "/" << getIntelignce()<<std::endl;
+	std::cout << "Username: " << getPlayerName() << std::endl << "Health: " << getHealth() << std::endl << "Attack power: " << getAttackPower() << std::endl << "Ability power: " << getAbilityPower() << std::endl <<"Dexterity: " << getDexterity() << std::endl <<"Inteligence: " << getIntelignce() << std::endl;
 }

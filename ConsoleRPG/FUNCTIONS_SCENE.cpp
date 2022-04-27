@@ -20,7 +20,7 @@ bool IntroScene1()
 	std::cout << "		Natas, helped by his brother, Anatos, and his horde of demons manage to defeat the OwlGod.\n";
 	std::cout << "   After his victory, Natas took human form, and descended on Earth, to rule it with his immortality and demonic power.\n";
 	std::cout << "Before he got trapped in a chest sealed by malephic curse, the OwlGod succeeded to create a deadly warrior from his left eye.\n";
-	std::cout << "         The legend says that he or she, will conquer the earth and will release it form the evil and misery.\n";
+	std::cout << "         The legend says that he, will conquer the earth and will release it form the evil and misery.\n";
 	std::cout << std::endl;
 	std::cout << std::endl;
 	std::cout << "Are you worthy enough to enter the dangerous world of Natas?\n";
@@ -97,9 +97,9 @@ int IntroScene3(std::string userName) {
 		switch (answer)
 		{
 		case 1: {
-			std::cout << "Since " << userName << "'s dad was a BlackSmith, he / she use to play a lot with his father swords, daggers, shields and armour in the childhood.\n";
+			std::cout << "Since " << userName << "'s dad was a BlackSmith, he used to play a lot with his father swords, daggers, shields and armour in the childhood.\n";
 			std::cout << "Sirius (his father) was also quite handy in handling the weapons, so he passes all his knowledge to his son.\n";
-			std::cout << "By the age of puberty " << userName << " become a master of the sword, that even the best gladiator of the king could not stand against him.\n";
+			std::cout << "By the age of puberty " << userName << " become a master of the sword, that even the best gladiator of the king could not stand against.\n";
 			goOn = false;
 			classChoice = 1;
 			return classChoice;
@@ -107,8 +107,8 @@ int IntroScene3(std::string userName) {
 		};
 		case 2: 
 		{
-			std::cout << "Since " << userName << "'s dad was a Healer, he use to play a lot with his father books, potions, strange instruments and crystal globes.\n";
-			std::cout << "Sirius (his father) name herself a \"healer\" just because Sorcerer would have brought him death.\n ";
+			std::cout << "Since " << userName << "'s dad was a Healer, he used to play a lot with his father books, potions, strange instruments and crystal globes.\n";
+			std::cout << "Sirius (his father) named himself a \"healer\" just because Sorcerer would have brought him his death.\n ";
 			std::cout << userName << " was educated in the art of magic by Sirius, before he could even speak properly.\n";
 			std::cout << "He was so good that in the age of puberty he could wound and heal an entire army.\n";
 			goOn = false;
@@ -130,4 +130,55 @@ int IntroScene3(std::string userName) {
 			}
 		}
 	} while (goOn);
+}
+
+void CharacterCreation(int wizOrWar)
+{
+	if (wizOrWar == 1) {
+		std::cout << "      _,." << std::endl;
+		std::cout << "    ,` -.)" << std::endl;
+		std::cout << "   ( _/-\\\\-._" << std::endl;
+		std::cout << "  /,|`--._,-^|            ," << std::endl;
+		std::cout << "  \\_| |`-._/||          ,'|" << std::endl;
+		std::cout << "    |  `-, / |         /  /" << std::endl;
+		std::cout << "    |     || |        /  /" << std::endl;
+		std::cout << "     `r-._||/   __   /  /" << std::endl;
+		std::cout << " __,-<_     )`-/  `./  /" << std::endl;
+		std::cout << "'  \\   `---'   \\   /  /" << std::endl;
+		std::cout << "    |           |./  /" << std::endl;
+		std::cout << "    /           //  /" << std::endl;
+		std::cout << "\\_/' \\         |/  /" << std::endl;
+		std::cout << " |    |   _,^-'/  /" << std::endl;
+		std::cout << " |    , ``  (\\/  /_" << std::endl;
+		std::cout << "  \\,.->._    \\X-=/^" << std::endl;
+		std::cout << "  (  /   `-._//^`" << std::endl;
+		std::cout << "   `Y-.____(__}" << std::endl;
+		std::cout << "    |     {__)" << std::endl;
+		std::cout << "          ()" << std::endl;
+	}
+	else if (wizOrWar == 2) {
+		std::cout << "                    ____ " << std::endl;
+		std::cout << "                  .'* *.'" << std::endl;
+		std::cout << "               __/_*_*(_" << std::endl;
+		std::cout << "              / _______ \\" << std::endl;
+		std::cout << "             _\\_)/___\\(_/_ " << std::endl;
+		std::cout << "            / _((\\^ ^/))_ \\" << std::endl;
+		std::cout << "            \\ \\()) - ()/ /" << std::endl;
+		std::cout << "             ' \\(((()))/ '" << std::endl;
+		std::cout << "            / ' \\)).))/ ' \\" << std::endl;
+		std::cout << "           / _ \\ - | - /_  \\" << std::endl;
+		std::cout << "          (   ( .;''';. .'  )" << std::endl;
+		std::cout << "          _\\\"__ /    )\\ __\" / _" << std::endl;
+		std::cout << "            \\/  \\   ' /  \\/" << std::endl;
+		std::cout << "             .'  '...' ' )" << std::endl;
+		std::cout << "              / /  |  \\ \\" << std::endl;
+			std::cout << "             / .   .   . \\" << std::endl;
+			std::cout << "            /   .     .   \\" << std::endl;
+			std::cout << "           /   /   |   \\   \\" << std::endl;
+			std::cout << "         .'   /    b    '.  '." << std::endl;
+			std::cout << "     _.-'    /     Bb     '-. '-._ " << std::endl;
+			std::cout << " _.-'       |      BBb       '-.  '-. " << std::endl;
+			std::cout << "(___________\\____.dBBBb.________)____)" << std::endl;
+			
+	}
 }
