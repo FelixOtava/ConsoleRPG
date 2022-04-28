@@ -11,7 +11,12 @@ Player::Player() {
 	this->inteligence = 0;
 }
 Player::~Player()
-{}
+{
+	for (auto& item : *inventory) {
+		delete item;
+	}
+	delete inventory;
+}
 void Player::PrintStats() {
 	std::cout << playerName <<"/" << health << "/" << attackPower << "/" << abilityPower << "/" << dexterity << "/" << inteligence<<std::endl;
 }
@@ -20,3 +25,16 @@ void Player::setPlayerName(std::string name)
 {
 	this->playerName = name;
 }
+
+void Player::AddItem(Item* item)
+{
+	inventory->push_back(item);
+}
+
+void Player::PrintInventory()
+{
+	for (auto& item : *inventory) {
+		item->ItemInfo();
+	}
+}
+

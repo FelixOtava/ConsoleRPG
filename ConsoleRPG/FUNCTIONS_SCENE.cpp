@@ -172,13 +172,13 @@ void CharacterCreation(int wizOrWar)
 		std::cout << "            \\/  \\   ' /  \\/" << std::endl;
 		std::cout << "             .'  '...' ' )" << std::endl;
 		std::cout << "              / /  |  \\ \\" << std::endl;
-			std::cout << "             / .   .   . \\" << std::endl;
-			std::cout << "            /   .     .   \\" << std::endl;
-			std::cout << "           /   /   |   \\   \\" << std::endl;
-			std::cout << "         .'   /    b    '.  '." << std::endl;
-			std::cout << "     _.-'    /     Bb     '-. '-._ " << std::endl;
-			std::cout << " _.-'       |      BBb       '-.  '-. " << std::endl;
-			std::cout << "(___________\\____.dBBBb.________)____)" << std::endl;
+		std::cout << "             / .   .   . \\" << std::endl;
+		std::cout << "            /   .     .   \\" << std::endl;
+		std::cout << "           /   /   |   \\   \\" << std::endl;
+		std::cout << "         .'   /    b    '.  '." << std::endl;
+		std::cout << "     _.-'    /     Bb     '-. '-._ " << std::endl;
+		std::cout << " _.-'       |      BBb       '-.  '-. " << std::endl;
+		std::cout << "(___________\\____.dBBBb.________)____)" << std::endl;
 			
 	}
 }

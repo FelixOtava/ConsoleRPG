@@ -1,5 +1,6 @@
 #pragma once
 #include "FUNCTIONS_SCENE.h"
+#include"Item.h"
 class Player
 {
 public:
@@ -8,6 +9,8 @@ public:
 	//Methodes
 	virtual void Attack();
 	virtual void PrintStats();
+	void AddItem(Item* item);
+	void PrintInventory();
 
 	//Accesors
 	inline const std::string& getPlayerName()const {return this->playerName;}
@@ -27,6 +30,7 @@ protected:
 	int abilityPower;
 	int dexterity;
 	int inteligence;
+	std::vector<Item*> *inventory;
 	
 };
 
