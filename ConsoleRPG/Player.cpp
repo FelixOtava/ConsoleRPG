@@ -12,10 +12,9 @@ Player::Player() {
 }
 Player::~Player()
 {
-	for (auto& item : *inventory) {
+	for (auto& item : inventory) {
 		delete item;
 	}
-	delete inventory;
 }
 void Player::PrintStats() {
 	std::cout << playerName <<"/" << health << "/" << attackPower << "/" << abilityPower << "/" << dexterity << "/" << inteligence<<std::endl;
@@ -28,13 +27,18 @@ void Player::setPlayerName(std::string name)
 
 void Player::AddItem(Item* item)
 {
-	inventory->push_back(item);
+	inventory.push_back(item);
 }
 
 void Player::PrintInventory()
 {
-	for (auto& item : *inventory) {
+	for (auto& item : inventory) {
 		item->ItemInfo();
 	}
 }
-
+void Player::RemoveItem(int index) {
+	if (index < 0 || index >= inventory.size()) {
+		throw("OUT OF BOUNDS REMOVE ITEM INVENTORY");
+	}
+	delete inventory.at(index);
+ }

@@ -16,12 +16,16 @@ int main()
 			mainCharacter = new Wizard(MainUserName);
 			break;
 		}
-		CharacterCreation(chooseClass);
+		CharacterCreationArt(chooseClass);
+		Scene3Chest(Scene3Travel(MainUserName));
+
 	}
 	else {
 		if (mainCharacter == NULL) {
 			std::cout << "I knew you are not brave enough\n";
 		}
 	}
+
+
 	delete mainCharacter;
 }

@@ -11,6 +11,7 @@ public:
 	virtual void PrintStats();
 	void AddItem(Item* item);
 	void PrintInventory();
+	void RemoveItem(int index);
 
 	//Accesors
 	inline const std::string& getPlayerName()const {return this->playerName;}
@@ -30,7 +31,7 @@ protected:
 	int abilityPower;
 	int dexterity;
 	int inteligence;
-	std::vector<Item*> *inventory;
+	std::vector<Item*> inventory;
 	
 };
 

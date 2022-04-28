@@ -26,12 +26,10 @@ bool IntroScene1()
 	std::cout << "Are you worthy enough to enter the dangerous world of Natas?\n";
 	std::cout << "Press 1 for Hell Yea !   ///////   Press 2 for running away like a scarry cat \n";
 	
-
 	int answer;
 	bool gameOn = false;
 	bool goOn;
 	std::cin >> answer;
-
 	do {
 		switch (answer)
 		{
@@ -58,8 +56,6 @@ bool IntroScene1()
 			break;
 		}
 	} while (goOn);
-
-
 
 	system("cls");
 	return gameOn;
@@ -97,6 +93,7 @@ int IntroScene3(std::string userName) {
 		switch (answer)
 		{
 		case 1: {
+			system("cls");
 			std::cout << "Since " << userName << "'s dad was a BlackSmith, he used to play a lot with his father swords, daggers, shields and armour in the childhood.\n";
 			std::cout << "Sirius (his father) was also quite handy in handling the weapons, so he passes all his knowledge to his son.\n";
 			std::cout << "By the age of puberty " << userName << " become a master of the sword, that even the best gladiator of the king could not stand against.\n";
@@ -107,6 +104,7 @@ int IntroScene3(std::string userName) {
 		};
 		case 2: 
 		{
+			system("cls");
 			std::cout << "Since " << userName << "'s dad was a Healer, he used to play a lot with his father books, potions, strange instruments and crystal globes.\n";
 			std::cout << "Sirius (his father) named himself a \"healer\" just because Sorcerer would have brought him his death.\n ";
 			std::cout << userName << " was educated in the art of magic by Sirius, before he could even speak properly.\n";
@@ -124,7 +122,7 @@ int IntroScene3(std::string userName) {
 			{
 				std::cin.clear();
 				std::cin.ignore();
-				std::cout << "ha, ha, ha you are so funny trying to press wrong inputs, just press 1 or 2" << std::endl;
+				std::cout << "Press 1 or 2!" << std::endl;
 				std::cin >> answer;
 				break;
 			}
@@ -132,7 +130,7 @@ int IntroScene3(std::string userName) {
 	} while (goOn);
 }
 
-void CharacterCreation(int wizOrWar)
+void CharacterCreationArt(int wizOrWar)
 {
 	if (wizOrWar == 1) {
 		std::cout << "      _,." << std::endl;
@@ -155,6 +153,12 @@ void CharacterCreation(int wizOrWar)
 		std::cout << "   `Y-.____(__}" << std::endl;
 		std::cout << "    |     {__)" << std::endl;
 		std::cout << "          ()" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Press any key to continue...\n";
+		std::string random;
+		std::cin.ignore();
+		std::cin >> random;
+		system("cls");
 	}
 	else if (wizOrWar == 2) {
 		std::cout << "                    ____ " << std::endl;
@@ -179,6 +183,98 @@ void CharacterCreation(int wizOrWar)
 		std::cout << "     _.-'    /     Bb     '-. '-._ " << std::endl;
 		std::cout << " _.-'       |      BBb       '-.  '-. " << std::endl;
 		std::cout << "(___________\\____.dBBBb.________)____)" << std::endl;
-			
+		std::cout << std::endl;
+		std::cout << "Press any key to continue...\n";
+		std::string random;
+		std::cin.ignore();
+		std::cin >> random;
+		system("cls");
 	}
+}
+
+int Scene3Travel(std::string name)
+{
+	PlaySound(NULL, 0,0);
+	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP);
+	std::cout << "After having a vision of his real father, the OwlGod, " << name << " had a revelation about his ture nature.\n";
+	std::cout << "All this time he felt different and more powerfull than the others, but he never knew that the reason of his inhuman capacityes was him beying a DemiGod.\n";
+	std::cout << "He spoke with Sirius about the vision, and about his destiny, and at that moment Sirius froze, his face frowning angrily, but also shocked.\n";
+	std::cout << "-I have to fulfill my destiny,he said, you trained me well father, but now is time for me to go and end what my real father started,\n";
+	std::cout << "-I will protect you and mom from that evil creature Natas, I will save the world.\n";
+	std::cout << "When Sirius heard all of his stepson speech, a little smile show on the edge of his lips:\n";
+	std::cout << "-Then go and end the suffer from the world!\n";
+	std::cout << "So in the end, "<<name<<" left Scrapsland and begin his jurney to kill Natas and his brother Anatos.\n";
+	std::cout << std::endl;
+	std::cout << "Somewere on his road, the DemiGod,found himself on a crossroad of 3 roads.\n";
+	std::cout << "The left one leads to BurkPalace, a town well known for its coruption and high crime rate.\n";
+	std::cout << "The middle one leads to The Forest of the Hanged, called like this for obvious reasons.\n";
+	std::cout << "And the last road leads to Carpathian Mountains, in this mountains Anatos and his horde of vampires are rumored to be ghosting around.\n";
+	std::cout << std::endl;
+	std::cout << "Choose your path: 1 or 2 or 3...\n";
+	int answer;
+	bool goOn;
+	int ans;
+	std::cin.ignore();
+	std::cin >> answer;
+	do {
+		switch (answer)
+		{
+		case 1:
+			goOn = false;
+			ans = 1;
+			system("cls");
+			break;
+		case 2:
+			goOn = false;
+			ans = 2;
+			system("cls");
+			break;
+		case 3:
+			goOn = false;
+			ans = 3;
+			system("cls");
+			break;
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2 or 3!\n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		}
+	} while (goOn);
+	return ans;
+}
+
+void Scene3Chest(int choose)
+{
+	std::cout << "                            _.--."<<std::endl;
+	std::cout << "                        _.-'_:-'||"<<std::endl;
+	std::cout << "                    _.-'_.-::::'||"<<std::endl;
+	std::cout << "               _.-:'_.-::::::'  ||"<<std::endl;
+	std::cout << "             .'`-.-:::::::'     ||"<<std::endl;
+	std::cout << "            /.'`;|:::::::'      ||_" << std::endl;
+	std::cout << "           ||   ||::::::'     _.;._'-._" << std::endl;
+	std::cout << "           ||   ||:::::'  _.-!oo @.!-._'-." << std::endl;
+	std::cout << "           \'.  ||:::::.-!()oo @!()@.-'_.|" << std::endl;
+	std::cout << "            '.'-;|:.-'.&$@.& ()$%-'o.'\\U||" << std::endl;
+	std::cout << "              `>'-.!@%()@'@_%-'_.-o _.|'||" << std::endl;
+	std::cout << "               ||-._'-.@.-'_.-' _.-o  |'||" << std::endl;
+	std::cout << "              ||=[ '-._.-\\U/.-'    o |'||" << std::endl;
+	std::cout << "               || '-.]=|| |'|      o  |'||" << std::endl;
+	std::cout << "               ||      || |'|        _| ';" << std::endl;
+	std::cout << "               ||      || |'|    _.-'_.-'" << std::endl;
+	std::cout << "               |'-._   || |'|_.-'_.-'" << std::endl;
+	std::cout << "                '-._'-.|| |' `_.-'" << std::endl;
+	std::cout << "                    '-.||_/.-'" << std::endl;
+	std::cout << std::endl;
+	std::cout<<"Hey, look!\n";
+	std::cout<<"You found a chest, maybe it countain a treasure, or something usefoul for your jurney\n";
+	std::cout << "Press 1 to open the chest <<>> Press 2 to leave it\n";
+
 }
