@@ -2,7 +2,7 @@
 
 bool IntroScene1()
 {
-	PlaySound(TEXT("Main_Menu.wav"), NULL, SND_ASYNC | SND_NOSTOP);
+	PlaySound(TEXT("Main_Menu.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	std::cout << "		,_.                                                          ,_.\n";
 	std::cout << "		'\\cXX.==- __                                        __ -==,XXv/`\n";
 	std::cout << "		    ~=_X7~ ,/~!g=-,_.                      ,_.-=s!~L. ~TX_=~\n";
@@ -83,7 +83,7 @@ int IntroScene3(std::string userName) {
 
 	std::cout << "In the end the "<<userName <<" arrived in a modest family, with working people,\n"<<userName<<"'s mother was a maid in the court of a duke, and his father was a : \n ";
 	std::cout << std::endl;
-	std::cout << "Press 1 for BlackSmith  <<<<<>>>>> Press 2 for Healer\n";
+	std::cout << "Press 1 for BlackSmith (you become a Warrior)  <<<<<>>>>> Press 2 for Healer (you become a Wizard)\n";
 	int answer;
 	int classChoice;
 	std::cin >> answer;
@@ -129,6 +129,8 @@ int IntroScene3(std::string userName) {
 		}
 	} while (goOn);
 }
+
+
 
 void CharacterCreationArt(int wizOrWar)
 {
@@ -195,7 +197,7 @@ void CharacterCreationArt(int wizOrWar)
 int Scene3Travel(std::string name)
 {
 	PlaySound(NULL, 0,0);
-	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP);
+	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP| SND_LOOP);
 	std::cout << "After having a vision of his real father, the OwlGod, " << name << " had a revelation about his ture nature.\n";
 	std::cout << "All this time he felt different and more powerfull than the others, but he never knew that the reason of his inhuman capacityes was him beying a DemiGod.\n";
 	std::cout << "He spoke with Sirius about the vision, and about his destiny, and at that moment Sirius froze, his face frowning angrily, but also shocked.\n";
@@ -251,7 +253,7 @@ int Scene3Travel(std::string name)
 	return ans;
 }
 
-void Scene3Chest(int choose)
+void SceneChestIntro(int choice)
 {
 	std::cout << "                            _.--."<<std::endl;
 	std::cout << "                        _.-'_:-'||"<<std::endl;
@@ -276,5 +278,49 @@ void Scene3Chest(int choose)
 	std::cout<<"Hey, look!\n";
 	std::cout<<"You found a chest, maybe it countain a treasure, or something usefoul for your jurney\n";
 	std::cout << "Press 1 to open the chest <<>> Press 2 to leave it\n";
+	int answer;
+	bool goOn;
+	std::cin.ignore();
+	std::cin >> answer;
+	do {
+		switch (answer)
+		{
+		case 1:
+			goOn = false;
+			std::cout << "Uh, there are 2 items, seems to be a weapon and a armour, them could be usefull\n ";
+			break;
+		case 2:
+			goOn = false;
+			std::cout << "LoL, you really wanted to leave empty handed? ^_^ i'll give you the items anyways\n";
+			break;
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2 !\n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		}
+	} while (goOn);
 
 }
+
+void SceneEquiping()
+{
+	std::cout << "You got some some good stuff in that chest, seems like your father let them here for you to find out\n"
+		"I will help you and autoequip them, but for the next time you will be able to equip/unequip the items you want\n";
+	
+	
+}
+
+
+
+
+
+
+

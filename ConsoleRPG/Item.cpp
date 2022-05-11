@@ -3,20 +3,21 @@
 Item::Item()
 {
 	name = "NONE";
-	attackDamage = 0;
-	abilityPower = 0;
-	dexterity = 0;
-	intelligence = 0;
+	ad = 0;
+	ap = 0;
+	dex = 0;
+	inte = 0;
 }
 
-Item::Item(std::string name, int AD, int AP, int DEX, int INT)
+void Item::createItem(std::string name,int AD, int AP, int Dex, int Int)
 {
-	this ->name = name;
-	attackDamage = AD;
-	abilityPower = AP;
-	dexterity = DEX;
-	intelligence = INT;
+	this->name = name;
+	ad = AD;
+	ap = AP;
+	dex = Dex;
+	inte = Int;
 }
+
 
 void Item::setItemName(std::string name)
 {
@@ -24,25 +25,30 @@ void Item::setItemName(std::string name)
 }
 void Item::setAD(int AD)
 {
-	attackDamage = AD;
+	ad = AD;
 }
 
 void Item::setAP(int AP)
 {
-	abilityPower = AP;
+	ap = AP;
 }
 
 void Item::setDex(int DEX)
 {
-	dexterity = DEX;
+	dex = DEX;
 }
 
 void Item::setInt(int INT)
 {
-	intelligence = INT;
+	inte = INT;
 }
 
 void Item::ItemInfo()
 {
-	std::cout << "Name: " << name << "//AttackDamage: " << attackDamage << "//AbilityPower: " << abilityPower << "//Dexterity: " << dexterity << "//Intelligence: " << intelligence << std::endl;
+	std::string equip;
+	if (equiped == true)
+		equip = "Yes";
+	else
+		equip = "No";
+	std::cout << "Name: " << name << " //AttackDamage: " << ad << " //AbilityPower: " << ap << " //Dexterity: " << dex << " //Intelligence: " << inte<<" //Equiped: "<<equip << std::endl;
 }

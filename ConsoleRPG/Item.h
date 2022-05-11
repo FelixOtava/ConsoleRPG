@@ -2,19 +2,21 @@
 #include<string>
 #include<iostream>
 
+
 class Item
 {
 public:
 	Item();
-	Item(std::string name,int AD, int AP, int DEX, int INT);
 	inline virtual ~Item() {};
-
+	void createItem(std::string name, int AD, int AP, int Dex, int Int);
 
 	inline const std::string& getItemName()const { return this->name; }
-	inline const int& getAttackDamage()const { return this->attackDamage; }
-	inline const int& getAttackPower()const { return this->abilityPower; }
-	inline const int& getDexterity()const { return this->dexterity; }
-	inline const int& getIntelignce()const { return this->intelligence; }
+	inline const int& getAD()const { return this->ad; }
+	inline const int& getAP()const { return this->ap; }
+	inline const int& getDex()const { return this->dex; }
+	inline const int& getInte()const { return this->inte; }
+	inline const bool& getEquiped()const { return this->equiped; }
+
 
 	void setItemName(std::string name);
 	void setAD(int AD);
@@ -24,12 +26,13 @@ public:
 
 	void ItemInfo();
 
-
+	bool equiped;
 private:
 	std::string name;
-	int attackDamage;
-	int abilityPower;
-	int dexterity;
-	int intelligence;
+	int ad;
+	int ap;
+	int dex;
+	int inte;
+	
 };
 

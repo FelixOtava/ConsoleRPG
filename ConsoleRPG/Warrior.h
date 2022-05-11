@@ -1,12 +1,16 @@
 #pragma once
 #include "Player.h"
+
 class Warrior :
     public Player
 {
 public:
 	void Attack();
-	Warrior(std::string name); // foloseste un constructor ce cere un parametru username
-	inline virtual ~Warrior() {};
 	void PrintStats();
+	void AddItem(Item* item);
+	Warrior(std::string name);
+	inline virtual ~Warrior() {};
+	Item* CreateWeapon();
+	Item* CreateArmour();
 
 };

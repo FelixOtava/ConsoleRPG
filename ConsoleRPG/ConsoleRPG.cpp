@@ -17,8 +17,16 @@ int main()
 			break;
 		}
 		CharacterCreationArt(chooseClass);
-		Scene3Chest(Scene3Travel(MainUserName));
-
+		SceneChest(Scene3Travel(MainUserName));
+		Item* weapon = mainCharacter->CreateWeapon();
+		Item* armour = mainCharacter->CreateArmour("josep");
+		mainCharacter->AddItem(weapon);
+		mainCharacter->AddItem(armour);
+		mainCharacter->equipItem(1);
+		mainCharacter->equipItem(2);
+		mainCharacter->PrintInventory();
+		
+		
 	}
 	else {
 		if (mainCharacter == NULL) {
