@@ -17,14 +17,15 @@ int main()
 			break;
 		}
 		CharacterCreationArt(chooseClass);
-		SceneChest(Scene3Travel(MainUserName));
+		SceneChestIntro(Scene3Travel(MainUserName));
 		Item* weapon = mainCharacter->CreateWeapon();
-		Item* armour = mainCharacter->CreateArmour("josep");
+		Item* armour = mainCharacter->CreateArmour();
 		mainCharacter->AddItem(weapon);
 		mainCharacter->AddItem(armour);
 		mainCharacter->equipItem(1);
 		mainCharacter->equipItem(2);
 		mainCharacter->PrintInventory();
+		mainCharacter->UpdateStats();
 		
 		
 	}

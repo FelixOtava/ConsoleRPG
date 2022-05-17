@@ -1,11 +1,11 @@
 #pragma once
 #pragma comment(lib,"winmm.lib")
+#include"Player.h"
 #include<iostream>
 #include<string>
-#include<vector>
 #include<Windows.h>
 #include<iomanip>
-#include"Player.h"
+
 
 
 bool IntroScene1();

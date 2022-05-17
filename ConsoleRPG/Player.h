@@ -1,6 +1,8 @@
 #pragma once
 #include "FUNCTIONS_SCENE.h"
 #include"Item.h"
+#include<vector>
+
 class Player
 {
 public:
@@ -34,11 +36,13 @@ public:
 
 	void equipItem(int itemNr);
 	void unequipItem(int ItemNr);
+	void UpdateStats();
+	
 
 	//Modifier
 	void setPlayerName(std::string name);
 
-	std::vector<Item*> inventory;
+	
 	
 
 protected:
@@ -49,6 +53,7 @@ protected:
 	int dexterity;
 	int inteligence;
 	int level;
-	
+	std::vector<Item*> inventory;
+
 };
 

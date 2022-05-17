@@ -29,8 +29,11 @@ Item* Wizard::CreateWeapon()
 	switch (lvl) 
 	{
 	case 1:
-	staff->createItem("Sirius's Staff", lvl * 1, lvl * 10, lvl * 1, lvl * 10);
+	staff->createItem("Sirius's Staff", lvl * 1, lvl * 10, lvl * 3, lvl * 10);
 	break;
+	default:
+		std::cout << "You have no lvl\n";
+		break;
 	}
 	return staff;
 }
@@ -40,16 +43,16 @@ Item* Wizard::CreateArmour()
 	Item* cloat = new Item;
 	switch (lvl) {
 	case 1:
-		cloat->createItem("Sirius Cloat", lvl * 1, lvl * 5, lvl * 1, lvl * 5);
+		cloat->createItem("Sirius Cloat", lvl * 1, lvl * 5, lvl * 2, lvl * 5);
 		break;
 	case 2:
-		cloat->createItem("Letter gloves" ,lvl * 1, lvl * 5, lvl * 1, lvl * 5);
+		cloat->createItem("Letter gloves" ,lvl * 1, lvl * 5, lvl * 2, lvl * 5);
 		break;
 	case 3:
-		cloat->createItem("Wind's wisper boots", lvl * 1, lvl * 5, lvl * 1, lvl * 5);
+		cloat->createItem("Wind's wisper boots", lvl * 1, lvl * 5, lvl * 2, lvl * 5);
 		break;
 	case  4:
-		cloat->createItem("Anato's eye Ring", lvl * 1, lvl * 5, lvl * 1, lvl * 5);
+		cloat->createItem("Anato's eye Ring", lvl * 1, lvl * 5, lvl * 2, lvl * 5);
 		break;
 	default:
 		std::cout << "You have no lvl\n";

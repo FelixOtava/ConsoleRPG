@@ -6,6 +6,7 @@
 class Item
 {
 public:
+	bool equiped;
 	Item();
 	inline virtual ~Item() {};
 	void createItem(std::string name, int AD, int AP, int Dex, int Int);
@@ -26,13 +27,12 @@ public:
 
 	void ItemInfo();
 
-	bool equiped;
 private:
 	std::string name;
 	int ad;
 	int ap;
 	int dex;
 	int inte;
-	
+
 };
 

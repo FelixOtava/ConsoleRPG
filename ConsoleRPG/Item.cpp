@@ -3,10 +3,10 @@
 Item::Item()
 {
 	name = "NONE";
-	ad = 0;
-	ap = 0;
-	dex = 0;
-	inte = 0;
+	ad = 1;
+	ap = 1;
+	dex = 1;
+	inte = 1;
 }
 
 void Item::createItem(std::string name,int AD, int AP, int Dex, int Int)
@@ -46,9 +46,11 @@ void Item::setInt(int INT)
 void Item::ItemInfo()
 {
 	std::string equip;
-	if (equiped == true)
+	if (equiped == true) {
 		equip = "Yes";
-	else
+	}
+	else {
 		equip = "No";
-	std::cout << "Name: " << name << " //AttackDamage: " << ad << " //AbilityPower: " << ap << " //Dexterity: " << dex << " //Intelligence: " << inte<<" //Equiped: "<<equip << std::endl;
+	}
+	std::cout << "Name: " << this->name << " //AttackDamage: " << this->ad << " //AbilityPower: " << this->ap << " //Dexterity: " << this->dex << " //Intelligence: " << this->inte << " //Equiped: "<<equip << std::endl;
 }

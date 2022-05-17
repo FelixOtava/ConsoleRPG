@@ -22,7 +22,7 @@ void Player::PrintStats() {
 
 void Player::setHealth(int hp)
 {
-	this->health += hp;
+	this->health *= hp;
 }
 
 void Player::setAttackPower(int attack)
@@ -66,6 +66,23 @@ void Player::unequipItem(int itemNr)
 	inventory[itemNr-1]->equiped = false;
 }
 
+void Player::UpdateStats()
+{
+	
+		for (auto& item : inventory) 
+		{
+
+			if (item->getEquiped() == true) 
+			{
+				setAttackPower(item->getAD());
+				setAbilityPower(item->getAP());
+				setDexterity(item->getDex());
+				setIntelligence(item->getInte());
+				setHealth(item->getDex());
+			}
+		}
+}
+
 
 
 void Player::setPlayerName(std::string name)
@@ -88,7 +105,7 @@ void Player::RemoveItem(int index) {
 	if (index < 0 || index >= inventory.size()) {
 		throw("OUT OF BOUNDS REMOVE ITEM INVENTORY");
 	}
-	delete inventory.at(index);
+	delete inventory.at(index-1);
  }
 
 Item* Player::CreateWeapon()
