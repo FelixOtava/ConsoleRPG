@@ -1,5 +1,4 @@
 #include "Wizard.h"
-#include "Item.h"
 void Wizard::Attack()
 {
 }
@@ -14,6 +13,7 @@ void Wizard::Attack()
 	this->inteligence = 5;
 	this->level = 1;
 }
+
 
 void Wizard::PrintStats()
 {
@@ -52,7 +52,7 @@ Item* Wizard::CreateArmour()
 		cloat->createItem("Wind's wisper boots", lvl * 1, lvl * 5, lvl * 2, lvl * 5);
 		break;
 	case  4:
-		cloat->createItem("Anato's eye Ring", lvl * 1, lvl * 5, lvl * 2, lvl * 5);
+		cloat->createItem("Anatos's eye Ring", lvl * 1, lvl * 5, lvl * 2, lvl * 5);
 		break;
 	default:
 		std::cout << "You have no lvl\n";

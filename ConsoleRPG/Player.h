@@ -27,20 +27,20 @@ public:
 	inline const int& getIntelignce()const {return this->inteligence;}
 	inline const int& getLevel()const {return this->level;}
 
+	//Modifier
 	void setHealth(int hp);
 	void setAttackPower(int attack);
 	void setAbilityPower(int ability);
 	void setIntelligence(int intelligence);
 	void setDexterity(int dexterity);
 	void setLevel();
+	void setPlayerName(std::string name);
+
 
 	void equipItem(int itemNr);
 	void unequipItem(int ItemNr);
 	void UpdateStats();
 	
-
-	//Modifier
-	void setPlayerName(std::string name);
 
 	
 	
