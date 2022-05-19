@@ -23,3 +23,5 @@ void SceneEquiping(Player* player);
 void SceneTheCity(Player *player);
 void FightScene(Player* player, Enemy* enemy);
 Enemy* GenerateEnemy(Player* player);
+bool RestCity();
+void RestCityRefuse();

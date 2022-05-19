@@ -432,8 +432,87 @@ Enemy* GenerateEnemy(Player* player)
 	default:
 		std::cout << "You really can't get here\n";
 		return Enemy;
-
 	}
+}
+
+bool RestCity()
+{
+	system("cls");
+	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	std::cout << "After getting rid of the thief, and recovered his weapon, the DemiGod continued his jurney to the city\n"
+		"Once there he descover the real misery of the city, and his stinky streets.\n"
+		"Screams everywhere, some of them comes from peasants trying to sell their goods, another one comes from people who fight in the middle of street,\n"
+		"another screams came from women who try to escape being raped and so on...\n"
+		"Is not a good place to stay the night, and also its a risc to be robbed, but in your condition is not a great idea to keep on walking\n"
+		"Maybe try to find a place to stay and recover and in the morning you can continue your jurney, at the end of the day if you want to fight Natas you need to be well rest and in a good shape..."
+		"and also night can harm the harmony\n"
+		"Or maybe you want to continue, who am I to tell you what to do?\n\n"
+		"Press 1 to seek for a place <<<--->>> Press 2 to continue your jurney\n";
+	int answer;
+	std::cin >> answer;
+	bool goOn;
+	do
+	{
+		switch (answer)
+		{
+		case 1: {
+			return true;
+			break;
+		};
+		case 2:
+		{
+			return false;
+			break;
+		};
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2!" << std::endl;
+				std::cin >> answer;
+				break;
+			}
+		}
+	} while (goOn);
+}
+
+void RestCityRefuse()
+{
+	system("cls");
+	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	std::cout << "Preety well, so our Hero chooses to see his way\n"
+		"He left the city, with his wounds untreadet. On his way he left a short blood trail behind him.\n"
+		"The dark has fallen\n"
+		"After a few hours of walking in the dark, the DemiGod started to hear some rustling around him.\n"
+		"His mind was prepare for the fight, but his body was not.\n"
+		"Few minutes after hearing noises in the bushes, Anatos was facing him...\n"
+		"He and other 2 daemon, Comanders of his horde\n\n"
+		"Now, you can think, i reall don't want to say 'I told you to' I also let u a hidden message, remember ?\n"
+		"\"and also night can harm the harmony\"\n"
+		"Yea, it's obvious that you died, but don't be sad, i prepare a tombstone for you\n"
+		"        _.---,._,'\n"
+		"      /' _.--.<\n"
+		"        /'     `'\n"
+		"      /' _.---._____\n"
+		"      \.'   ___, .-'`\n"
+		"          /'    \\\\             .\n"
+		"        /'       `-.          -|-\n"
+		"       |                       |\n"
+		"       |                   .-'~~~`-.\n"
+		"       |                 .'         `.\n"
+		"       |                 |  R  I  P  |\n"
+		"       |                 |           |\n"
+		"       |                 |           |\n"
+		"        \\              \\\\|           |//\n"
+		"  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+		"Just to feel better \\^_^/\n"
+		"GAME OVER";
 }
 
 

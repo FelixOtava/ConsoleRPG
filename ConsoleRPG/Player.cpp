@@ -116,7 +116,7 @@ void Player::IncreaseStats(int index)
 void Player::DecreaseStats(int index)
 {
 	if (index > inventory.size() || index <= 0) {
-		std::cout << "OUT OF INVENTORY BOUND\n";
+		throw ("OUT OF INVENTORY BOUND\n");
 	}
 	auto item = inventory.at(index-1);
 	decreaseAttackPower(item->getAD());

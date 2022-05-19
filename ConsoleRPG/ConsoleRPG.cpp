@@ -30,7 +30,14 @@ int main()
 		SceneEquiping(mainCharacter);
 		SceneTheCity(mainCharacter);
 		FightScene(mainCharacter,GenerateEnemy(mainCharacter));
-		
+		if (RestCity()) 
+		{
+
+		}
+		else 
+		{
+			RestCityRefuse();
+		}
 		
 
 		
