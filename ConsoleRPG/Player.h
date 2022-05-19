@@ -1,5 +1,4 @@
 #pragma once
-#include "FUNCTIONS_SCENE.h"
 #include"Item.h"
 #include<vector>
 
@@ -9,7 +8,7 @@ public:
 	Player();
 	virtual ~Player();
 	//Methodes
-	virtual void Attack();
+	virtual int Attack();
 	virtual void PrintStats();
 	virtual void AddItem(Item* item);
 	void PrintInventory();
@@ -26,28 +25,43 @@ public:
 	inline const int& getDexterity()const {return this->dexterity;}
 	inline const int& getIntelignce()const {return this->inteligence;}
 	inline const int& getLevel()const {return this->level;}
+	inline const int& getMaxHealth() const { return this->maxHealth; }
 
 	//Modifier
-	void setHealth(int hp);
-	void setAttackPower(int attack);
-	void setAbilityPower(int ability);
-	void setIntelligence(int intelligence);
-	void setDexterity(int dexterity);
-	void setLevel();
+	void increaseHealth(int hp);
+	void increaseAttackPower(int attack);
+	void increaseAbilityPower(int ability);
+	void increaseIntelligence(int intelligence);
+	void increaseDexterity(int dexterity);
+	void updateHealth();
+
+	void decreaseHealth(int hp);
+	void decreaseAttackPower(int attack);
+	void decreaseAbilityPower(int ability);
+	void decreaseIntelligence(int intelligence);
+	void decreaseDexterity(int dexterity);
+
+	void increaseLevel();
 	void setPlayerName(std::string name);
+	void setPlayerHealth(int health);
 
 
 	void equipItem(int itemNr);
 	void unequipItem(int ItemNr);
-	void UpdateStats();
+	void IncreaseStats(int index);
+	void DecreaseStats(int index);
+	
+
 	
 
 	
 	
 
 protected:
+	
 	std::string playerName;
 	int health ;
+	int maxHealth;
 	int attackPower;
 	int abilityPower;
 	int dexterity;

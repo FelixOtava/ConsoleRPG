@@ -145,6 +145,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FUNCTIONS_SCENE.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Natas.cpp" />
     <ClCompile Include="Orch.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Theif.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FUNCTIONS_SCENE.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Natas.h" />
     <ClInclude Include="Orch.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Theif.h" />

@@ -1,6 +1,7 @@
 #include "FUNCTIONS_SCENE.h"
 #include"Warrior.h"
 #include"Wizard.h"
+
 int main()
 {
 	Player* mainCharacter = NULL;
@@ -23,10 +24,15 @@ int main()
 		mainCharacter->AddItem(weapon);
 		mainCharacter->AddItem(armour);
 		mainCharacter->equipItem(1);
+		mainCharacter->IncreaseStats(1);
 		mainCharacter->equipItem(2);
-		mainCharacter->PrintInventory();
-		mainCharacter->UpdateStats();
+		mainCharacter->IncreaseStats(2);
+		SceneEquiping(mainCharacter);
+		SceneTheCity(mainCharacter);
+		FightScene(mainCharacter,GenerateEnemy(mainCharacter));
 		
+		
+
 		
 	}
 	else {

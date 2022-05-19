@@ -1,9 +1,13 @@
 #include "Player.h"
 
-void Player::Attack()
-{}
+int Player::Attack()
+{
+	std::cout << "Just in case\n";
+	return 1;
+}
 Player::Player() {
 	this->playerName = "Username";
+	this->maxHealth = 0;
 	this->health = 0;
 	this->attackPower = 0;
 	this->abilityPower = 0;
@@ -17,35 +21,65 @@ Player::~Player()
 	}
 }
 void Player::PrintStats() {
-	std::cout << playerName <<"/" << health << "/" << attackPower << "/" << abilityPower << "/" << dexterity << "/" << inteligence<<std::endl;
+	std::cout << playerName <<"/" << health << "/" << attackPower << "/" << abilityPower << "/" << dexterity << "/" << inteligence << std::endl;
 }
 
-void Player::setHealth(int hp)
+void Player::increaseHealth(int hp)
 {
-	this->health *= hp;
+	this->maxHealth *= hp;
 }
 
-void Player::setAttackPower(int attack)
+void Player::increaseAttackPower(int attack)
 {
 	this->attackPower += attack;
 }
 
-void Player::setAbilityPower(int ability)
+void Player::increaseAbilityPower(int ability)
 {
 	this->abilityPower += ability;
 }
 
-void Player::setIntelligence(int intelligence)
+void Player::increaseIntelligence(int intelligence)
 {
 	this->inteligence += intelligence;
 }
 
-void Player::setDexterity(int dexterity)
+void Player::increaseDexterity(int dexterity)
 {
 	this->dexterity += dexterity;
 }
 
-void Player::setLevel()
+void Player::updateHealth()
+{
+	health = maxHealth;
+}
+
+void Player::decreaseHealth(int hp)
+{
+	this->maxHealth /= hp;
+}
+
+void Player::decreaseAttackPower(int attack)
+{
+	this->attackPower -= attack;
+}
+
+void Player::decreaseAbilityPower(int ability)
+{
+	this->abilityPower -= ability;
+}
+
+void Player::decreaseIntelligence(int intelligence)
+{
+	this->inteligence -= intelligence;
+}
+
+void Player::decreaseDexterity(int dexterity)
+{
+	this->dexterity -= dexterity;
+}
+
+void Player::increaseLevel()
 {
 	level++;
 }
@@ -56,7 +90,6 @@ void Player::equipItem(int itemNr)
 		std::cout<<"Out of inventory bounds\n";
 	else
 	inventory[itemNr-1]->equiped = true;
-	
 }
 void Player::unequipItem(int itemNr)
 {
@@ -66,21 +99,32 @@ void Player::unequipItem(int itemNr)
 	inventory[itemNr-1]->equiped = false;
 }
 
-void Player::UpdateStats()
+void Player::IncreaseStats(int index)
 {
-	
-		for (auto& item : inventory) 
-		{
+	if (index > inventory.size()|| index<=0) {
+		std::cout << "OUT OF INVENTORY BOUND\n";
+	}
+	auto item = inventory.at(index-1);
+	increaseAttackPower(item->getAD());
+	increaseAbilityPower(item->getAP());
+	increaseDexterity(item->getDex());
+	increaseIntelligence(item->getInte());
+	increaseHealth(item->getDex());
+	updateHealth();
+}
 
-			if (item->getEquiped() == true) 
-			{
-				setAttackPower(item->getAD());
-				setAbilityPower(item->getAP());
-				setDexterity(item->getDex());
-				setIntelligence(item->getInte());
-				setHealth(item->getDex());
-			}
-		}
+void Player::DecreaseStats(int index)
+{
+	if (index > inventory.size() || index <= 0) {
+		std::cout << "OUT OF INVENTORY BOUND\n";
+	}
+	auto item = inventory.at(index-1);
+	decreaseAttackPower(item->getAD());
+	decreaseAbilityPower(item->getAP());
+	decreaseDexterity(item->getDex());
+	decreaseIntelligence(item->getInte());
+	decreaseHealth(item->getDex());
+	updateHealth();
 }
 
 
@@ -88,6 +132,11 @@ void Player::UpdateStats()
 void Player::setPlayerName(std::string name)
 {
 	this->playerName = name;
+}
+
+void Player::setPlayerHealth(int health)
+{
+	this->health = health;
 }
 
 void Player::AddItem(Item* item)
@@ -102,10 +151,10 @@ void Player::PrintInventory()
 	}
 }
 void Player::RemoveItem(int index) {
-	if (index < 0 || index >= inventory.size()) {
-		throw("OUT OF BOUNDS REMOVE ITEM INVENTORY");
+	if (index < 0 || index > inventory.size()) {
+		std::cout<<"OUT OF BOUNDS REMOVE ITEM INVENTORY";
 	}
-	delete inventory.at(index-1);
+	inventory.erase(std::remove(inventory.begin(), inventory.end(), inventory.at(index - 1)), inventory.end());
  }
 
 Item* Player::CreateWeapon()

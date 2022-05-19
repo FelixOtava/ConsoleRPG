@@ -1,10 +1,10 @@
 #include "Theif.h"
 
-Theif::Theif(std::string name)
+Theif::Theif()
 {
-	this->name = name;
-	health = 300;
-	attackDamage = 50;
+	this->name = "Rei (a misery burgler and child rapist)";
+	health = 1400;
+	attackDamage = 60;
 }
 
 

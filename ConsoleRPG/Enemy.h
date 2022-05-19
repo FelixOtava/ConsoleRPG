@@ -7,10 +7,10 @@ public:
 	Enemy();
 	Enemy(std::string name);
 	inline virtual ~Enemy() {};
-
 	//Methodes
 	virtual void PrintEnemyStats();
 	inline void EnemyAttack() {};
+	int Attack();
 
 	//Accesors
 	inline const std::string& getEnemyName()const { return this->name; }

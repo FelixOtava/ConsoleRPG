@@ -19,6 +19,11 @@ void Enemy::PrintEnemyStats()
 	std::cout << "Enemy name: " << name << " Health: " << health << " AttackDamage: " << attackDamage << std::endl;
 }
 
+int Enemy::Attack()
+{
+	return attackDamage;
+}
+
 void Enemy::setHealth(int health)
 {
 	this->health = health;

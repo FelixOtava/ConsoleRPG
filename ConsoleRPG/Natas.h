@@ -1,14 +1,12 @@
 #pragma once
 #include "Enemy.h"
-class Theif :
+class Natas :
     public Enemy
 {
 public:
-    Theif();
-    inline virtual ~Theif() {};
+    Natas();
+    inline virtual ~Natas() {};
     void PrintEnemyStats();
     inline void EnemyAttack() {};
-   
-
 };
 

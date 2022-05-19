@@ -4,7 +4,7 @@ class Warrior :
     public Player
 {
 public:
-	void Attack();
+	int Attack();
 	void PrintStats();
 	void AddItem(Item* item);
 

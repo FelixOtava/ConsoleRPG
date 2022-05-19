@@ -1,13 +1,15 @@
 #include "Warrior.h"
-void Warrior::Attack()
+int Warrior::Attack()
 {
+	return attackPower;
 }
 
 Warrior::Warrior(std::string name)
 {
 	this->playerName = name;
 	this->health = 200;
-	this->attackPower = 35;
+	this->maxHealth = 800;
+	this->attackPower = 45;
 	this->abilityPower = 1;
 	this->dexterity = 5;
 	this->inteligence = 1;
@@ -17,7 +19,7 @@ Warrior::Warrior(std::string name)
 
 void Warrior::PrintStats()
 {
-	std::cout << "Username: " << getPlayerName() << std::endl << "Health: " << getHealth() << std::endl << "Attack power: " << getAttackPower() << std::endl << "Ability power: " << getAbilityPower() << std::endl <<"Dexterity: " << getDexterity() << std::endl <<"Inteligence: " << getIntelignce() << std::endl;
+	std::cout << "Username: " << getPlayerName() << std::endl <<"Max Health:"<<getMaxHealth()<<std::endl << "Health: " << getHealth() << std::endl << "Attack power: " << getAttackPower() << std::endl << "Ability power: " << getAbilityPower() << std::endl << "Dexterity: " << getDexterity() << std::endl << "Inteligence: " << getIntelignce() << std::endl << "Level: " << getLevel() << std::endl;
 }
 
 Item* Warrior::CreateWeapon()

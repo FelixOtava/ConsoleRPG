@@ -1,14 +1,16 @@
 #include "Wizard.h"
-void Wizard::Attack()
+int Wizard::Attack()
 {
+	return abilityPower;
 }
 
  Wizard::Wizard(std::string name)
 {
 	this->playerName = name;
 	this->health = 100;
+	this->maxHealth = 450;
 	this->attackPower = 1;
-	this->abilityPower = 70;
+	this->abilityPower = 95;
 	this->dexterity = 1;
 	this->inteligence = 5;
 	this->level = 1;
@@ -17,8 +19,7 @@ void Wizard::Attack()
 
 void Wizard::PrintStats()
 {
-	std::cout << "Username: " << getPlayerName() << std::endl << "Health: " << getHealth() << std::endl << "Attack power: " << getAttackPower() << std::endl << "Ability power: " << getAbilityPower() << std::endl << "Dexterity: " << getDexterity() << std::endl << "Inteligence: " << getIntelignce() << std::endl;
-
+	std::cout << "Username: " << getPlayerName() << std::endl << "Max Health:" << getMaxHealth() << std::endl << "Health: " << getHealth() << std::endl << "Attack power: " << getAttackPower() << std::endl << "Ability power: " << getAbilityPower() << std::endl << "Dexterity: " << getDexterity() << std::endl << "Inteligence: " << getIntelignce() << std::endl << "Level: " << getLevel() << std::endl;
 }
 
 
@@ -43,7 +44,7 @@ Item* Wizard::CreateArmour()
 	Item* cloat = new Item;
 	switch (lvl) {
 	case 1:
-		cloat->createItem("Sirius Cloat", lvl * 1, lvl * 5, lvl * 2, lvl * 5);
+		cloat->createItem("Sirius Cloat", lvl * 1, lvl * 8, lvl * 2, lvl * 5);
 		break;
 	case 2:
 		cloat->createItem("Letter gloves" ,lvl * 1, lvl * 5, lvl * 2, lvl * 5);

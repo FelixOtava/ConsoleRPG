@@ -198,19 +198,19 @@ int Scene3Travel(std::string name)
 {
 	PlaySound(NULL, 0,0);
 	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP| SND_LOOP);
-	std::cout << "After having a vision of his real father, the OwlGod, " << name << " had a revelation about his ture nature.\n";
-	std::cout << "All this time he felt different and more powerfull than the others, but he never knew that the reason of his inhuman capacityes was him beying a DemiGod.\n";
-	std::cout << "He spoke with Sirius about the vision, and about his destiny, and at that moment Sirius froze, his face frowning angrily, but also shocked.\n";
-	std::cout << "-I have to fulfill my destiny,he said, you trained me well father, but now is time for me to go and end what my real father started,\n";
-	std::cout << "-I will protect you and mom from that evil creature Natas, I will save the world.\n";
-	std::cout << "When Sirius heard all of his stepson speech, a little smile show on the edge of his lips:\n";
-	std::cout << "-Then go and end the suffer from the world!\n";
-	std::cout << "So in the end, "<<name<<" left Scrapsland and begin his jurney to kill Natas and his brother Anatos.\n";
+	std::cout << "After having a vision of his real father, the OwlGod, " << name << " had a revelation about his ture nature.\n"
+		"All this time he felt different and more powerfull than the others, but he never knew that the reason of his inhuman capacityes was him beying a DemiGod.\n"
+		"He spoke with Sirius about the vision, and about his destiny, and at that moment Sirius froze, his face frowning angrily, but also shocked.\n"
+		"-I have to fulfill my destiny,he said, you trained me well father, but now is time for me to go and end what my real father started,\n"
+		"-I will protect you and mom from that evil creature Natas, I will save the world.\n"
+		"When Sirius heard all of his stepson speech, a little smile show on the edge of his lips:\n"
+		"-Then go and end the suffer from the world!\n"
+		"So in the end, " << name << " left Scrapsland and begin his jurney to kill Natas and his brother Anatos.\n";
 	std::cout << std::endl;
-	std::cout << "Somewere on his road, the DemiGod,found himself on a crossroad of 3 roads.\n";
-	std::cout << "The left one leads to BurkPalace, a town well known for its coruption and high crime rate.\n";
-	std::cout << "The middle one leads to The Forest of the Hanged, called like this for obvious reasons.\n";
-	std::cout << "And the last road leads to Carpathian Mountains, in this mountains Anatos and his horde of vampires are rumored to be ghosting around.\n";
+	std::cout << "Somewere on his road, the DemiGod,found himself on a crossroad of 3 roads.\n"
+	"The left one leads to BurkPalace, a town well known for its coruption and high crime rate.\n"
+	"The middle one leads to The Carpathian Mountains, in this mountains Anatos and his horde of vampires are rumored to be ghosting around.\n"
+	"And the last road leads to The Forest of the Hanged, called like this for obvious reasons.\n";
 	std::cout << std::endl;
 	std::cout << "Choose your path: 1 or 2 or 3...\n";
 	int answer;
@@ -227,14 +227,30 @@ int Scene3Travel(std::string name)
 			system("cls");
 			break;
 		case 2:
-			goOn = false;
-			ans = 2;
-			system("cls");
+			std::cout << "This is a very dangerous road, you really need some more experience to walk this path.\n"
+				"Try first the City, maybe you can learn something useful there.(~^-^)~\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2 or 3!\n" << std::endl;
+				std::cin >> answer;
+			}
 			break;
 		case 3:
-			goOn = false;
-			ans = 3;
-			system("cls");
+			std::cout << "Hmm, seems like your level isn't high enouth to pass trough this path.\n"
+				"Looks like you have some unfinished business elsewhere \\_(-_-)_/\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2 or 3!\n" << std::endl;
+				std::cin >> answer;
+			}
 			break;
 		default:
 			std::cout << "Wrong key, try again\n";
@@ -310,12 +326,114 @@ void SceneChestIntro(int choice)
 
 }
 
-void SceneEquiping()
+void SceneEquiping(Player * player)
 {
-	std::cout << "You got some some good stuff in that chest, seems like your father let them here for you to find out\n"
-		"I will help you and autoequip them, but for the next time you will be able to equip/unequip the items you want\n";
+	std::cout << "You got some good stuff in that chest, seems like your father let them here for you to find out\n"
+		"I will help you and autoequip them, but for the next time you will be able to equip/unequip the items you want\n\n";
+	player->PrintInventory();
+	std::cout << "\n Up there is your inventory, you can see your items, theirs stats, and the status (equiped/unequiped)\n"
+		"And donw here is your stats, you can see stats like Healts, AttackPower and so on, this will be usefoul in the future\n\n";
+	player->PrintStats();
+	std::cout << "Press any key to continue...\n";
+	std::string random;
+	std::cin.ignore();
+	std::cin >> random;
 	
-	
+}
+
+void SceneTheCity(Player *player)
+{
+	system("cls");
+	std::cout << "So the City of BurkPalace, a verry good choice for your first adventure (keep this between us but you really have not much of a chose)\n"
+		"Be careful, this city is well known for it's agressive locals, the criminal activity in this city have got above the ceiling, everyone is a thief, a murderer, a hustler, rapists and so on...\n"
+		"After few minutes of walking, the mighty DemiGod saw, far away, rising above the horizon line the city.\n"
+		"A massive cross was the first thing his eyes could see.The cross was shiny and stately.\n"
+		"It was made of gold, and the sides of the cross were made by silver, all of this with the purpose of imposing opulence.\n"
+		"The priest was a very important person in the town, and all he held all the executive power.\n"
+		"On his way, to get to the city, the DemiGod saw a little creature, and curious by his nature, he get close to it to see what kind of animal it is.\n"
+		" /\\_/\\\n"
+		"(='_' )\n"
+		"(, (\") (\")\n"
+		"-HMM, looks like a strange cat, said the DemiGod." 
+		"But when he got closer to pet it, a thief jump out of a bush and sneak his weapon.\n"
+		"After this scene, a moment of silence and wonder appears, while the thief manages to take a few quick steps to escape with the prey."
+		"-Hey you, STOP over there, you slipery rat, exclaim the DemiGod, before throwing a rock which hit the thief in the head;\n"
+		"In few seconds, "<<player->getPlayerName()<<" catches the thief, who struggle to escape.\n"
+		"Seems like you need to fight the thief, because his intentions are to cut your heart out of the chest with your own sword;\n"
+		"All of this being said, a duel had begun.\n";
+		player->unequipItem(1);
+		player->DecreaseStats(1);
+		std::cout << "Press any key to continue...\n";
+		std::string random;
+		std::cin.ignore();
+		std::cin >> random;
+}
+
+void FightScene(Player* player, Enemy* enemy)
+{
+	system("cls");
+	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	int playerAttack, enemyAttack, playerHealth, enemyHealth;
+	playerAttack = player->Attack();
+	enemyAttack = enemy->Attack();
+	playerHealth = player->getHealth();
+	enemyHealth = enemy->getHealth();
+	do
+	{
+		enemyHealth -= playerAttack;
+		std::cout <<"Enemy's health after you have attacked: " << enemyHealth << std::endl;
+		Sleep(300);
+		if (enemyHealth <= 0)
+			break;
+		playerHealth -= enemyAttack;
+		std::cout <<"Your health after Enemy have attacked: " << playerHealth << std::endl;
+		Sleep(300);
+		if (playerHealth <= 0)
+			break;
+	} while (enemyHealth >=0 || playerHealth >=0);
+	if (enemyHealth < playerHealth)
+	{
+		std::cout << "You Won\n";
+		player->increaseLevel();
+		player->equipItem(1);
+		player->IncreaseStats(1);
+	}
+	else
+		std::cout << "You Lose\n";
+	player->setPlayerHealth(playerHealth);
+	std::cout<<"Press any key to continue...\n";
+	std::string random;
+	std::cin.ignore();
+	std::cin >> random;
+}
+
+Enemy* GenerateEnemy(Player* player)
+{
+	Enemy* Enemy = NULL;
+	int lvl = player->getLevel();
+	switch (lvl)
+	{
+	case 1:Enemy = new Theif();
+		return Enemy;
+		break;
+	case 2:
+		Enemy = new Orch();
+		return Enemy;
+		break;
+	case 3:
+		Enemy = new Anatos();
+		return Enemy;
+		break;
+	case 4:
+		Enemy = new Anatos();
+		return Enemy;
+		break;
+	default:
+		std::cout << "You really can't get here\n";
+		return Enemy;
+
+	}
 }
 
 
