@@ -30,9 +30,17 @@ int main()
 		SceneEquiping(mainCharacter);
 		SceneTheCity(mainCharacter);
 		FightScene(mainCharacter,GenerateEnemy(mainCharacter));
-		if (RestCity()) 
+		if (RestCity(mainCharacter)) 
 		{
-
+			RestCityAccept();
+			if (SceneTheForest(mainCharacter, GenerateEnemy(mainCharacter)))
+			{
+				
+			}
+			else
+			{
+				SceneTheForestDead(mainCharacter,GenerateEnemy(mainCharacter));
+			}
 		}
 		else 
 		{
@@ -50,4 +58,6 @@ int main()
 
 
 	delete mainCharacter;
+	
+	
 }

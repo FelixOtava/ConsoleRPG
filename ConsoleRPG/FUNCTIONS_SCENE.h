@@ -12,7 +12,8 @@
 
 
 
-
+void crossroad();
+void deadArt();
 bool IntroScene1();
 std::string IntroScene2();
 int IntroScene3(std::string userName);
@@ -23,5 +24,8 @@ void SceneEquiping(Player* player);
 void SceneTheCity(Player *player);
 void FightScene(Player* player, Enemy* enemy);
 Enemy* GenerateEnemy(Player* player);
-bool RestCity();
+bool RestCity(Player* player);
 void RestCityRefuse();
+void RestCityAccept();
+void SceneTheForestDead(Player* player, Enemy* enemy);
+bool SceneTheForest(Player* player,Enemy* enemy);

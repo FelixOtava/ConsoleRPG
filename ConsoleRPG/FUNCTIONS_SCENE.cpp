@@ -1,5 +1,45 @@
 #include "FUNCTIONS_SCENE.h"
 
+void crossroad()
+{
+	std::cout<<"Reached the crossroads again, the DemiGod, have to choose another way\n"
+		"The left one leads to BurkPalace, a town well known for its coruption and high crime rate.\n"
+		"The middle one leads to The Carpathian Mountains, in this mountains Anatos and his horde of vampires are rumored to be ghosting around.\n"
+		"And the last road leads to The Forest of the Hanged, called like this for obvious reasons.\n"
+		"Choose your path : 1 or 2 or 3... ";
+}
+
+void deadArt()
+{
+	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("EndSong.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	std::cout<<"        _.---,._,'\n"
+		"      /' _.--.<\n"
+		"        /'     `'\n"
+		"      /' _.---._____\n"
+		"      \.'   ___, .-'`\n"
+		"          /'    \\\\             .\n"
+		"        /'       `-.          -|-\n"
+		"       |                       |\n"
+		"       |                   .-'~~~`-.\n"
+		"       |                 .'         `.\n"
+		"       |                 |  R  I  P  |\n"
+		"       |                 |           |\n"
+		"       |                 |           |\n"
+		"        \\              \\\\|           |//\n"
+		"  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+		"		Just to feel better \\_ ^_^ _/\n"
+		"  _____                         ____                 \n"
+		" / ____|                       / __ \\                \n"
+		"| |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __ \n"
+		"| | |_ |/ _` | '_ ` _ \\ / _ \\ | |  | \\ \\ / / _ \\ '__|\n"
+		"| |__| | (_| | | | | | |  __/ | |__| |\\ V /  __/ |   \n"
+		" \\_____|\\__,_|_| |_| |_|\\___|  \\____/  \\_/ \\___|_|   \n";
+	std::string random;
+	std::cin.ignore();
+	std::cin >> random;
+}
+
 bool IntroScene1()
 {
 	PlaySound(TEXT("Main_Menu.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
@@ -371,7 +411,6 @@ void SceneTheCity(Player *player)
 
 void FightScene(Player* player, Enemy* enemy)
 {
-	system("cls");
 	PlaySound(NULL, 0, 0);
 	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	int playerAttack, enemyAttack, playerHealth, enemyHealth;
@@ -383,12 +422,12 @@ void FightScene(Player* player, Enemy* enemy)
 	{
 		enemyHealth -= playerAttack;
 		std::cout <<"Enemy's health after you have attacked: " << enemyHealth << std::endl;
-		Sleep(300);
+		Sleep(100);
 		if (enemyHealth <= 0)
 			break;
 		playerHealth -= enemyAttack;
 		std::cout <<"Your health after Enemy have attacked: " << playerHealth << std::endl;
-		Sleep(300);
+		Sleep(100);
 		if (playerHealth <= 0)
 			break;
 	} while (enemyHealth >=0 || playerHealth >=0);
@@ -435,12 +474,52 @@ Enemy* GenerateEnemy(Player* player)
 	}
 }
 
-bool RestCity()
+bool RestCity(Player* player)
 {
 	system("cls");
 	PlaySound(NULL, 0, 0);
 	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
-	std::cout << "After getting rid of the thief, and recovered his weapon, the DemiGod continued his jurney to the city\n"
+	std::cout << "After getting rid of the thief, and recovered his weapon, the DemiGod saw an interesting pice of gear wich the dead body was wearing\n"
+		"He picked it up, and inspect it\n\n";
+	player->AddItem(player->CreateArmour());
+	player->PrintInventory();
+	std::cout << "\nThe last item in your inventory is the item that you just picked up\n"
+		"You can choose to equip it or not, but be careful if you don't equip the item, it can affect your pregress\n"
+		"Press 1 to Equip the Item <<<<<----->>>>> Press 2 to Not Equip the item\n";
+	int answer1;
+	std::cin >> answer1;
+	bool goOn1=false;
+	do
+	{
+		switch (answer1)
+		{
+		case 1: {
+			player->equipItem(2);
+			system("cls");
+			std::cout << "Item was equiped\n";
+			break;
+		};
+		case 2:
+		{
+			system("cls");
+			std::cout << "As you wish\n";
+			break;
+		};
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn1 = true;
+			std::cin >> answer1;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2!" << std::endl;
+				std::cin >> answer1;
+				break;
+			}
+		}
+	} while (goOn1);
+	std::cout<<"All of this beying done, the DemiGod continued his jurney to te cityy of BurkPlace\n"
 		"Once there he descover the real misery of the city, and his stinky streets.\n"
 		"Screams everywhere, some of them comes from peasants trying to sell their goods, another one comes from people who fight in the middle of street,\n"
 		"another screams came from women who try to escape being raped and so on...\n"
@@ -449,12 +528,12 @@ bool RestCity()
 		"and also night can harm the harmony\n"
 		"Or maybe you want to continue, who am I to tell you what to do?\n\n"
 		"Press 1 to seek for a place <<<--->>> Press 2 to continue your jurney\n";
-	int answer;
-	std::cin >> answer;
-	bool goOn;
+	int answer2;
+	std::cin >> answer2;
+	bool goOn2;
 	do
 	{
-		switch (answer)
+		switch (answer2)
 		{
 		case 1: {
 			return true;
@@ -467,25 +546,25 @@ bool RestCity()
 		};
 		default:
 			std::cout << "Wrong key, try again\n";
-			goOn = true;
-			std::cin >> answer;
+			goOn2 = true;
+			std::cin >> answer2;
 			if (std::cin.fail())
 			{
 				std::cin.clear();
 				std::cin.ignore();
 				std::cout << "Press 1 or 2!" << std::endl;
-				std::cin >> answer;
+				std::cin >> answer2;
 				break;
 			}
 		}
-	} while (goOn);
+	} while (goOn2);
 }
 
 void RestCityRefuse()
 {
 	system("cls");
 	PlaySound(NULL, 0, 0);
-	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	PlaySound(TEXT("EndSong.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	std::cout << "Preety well, so our Hero chooses to see his way\n"
 		"He left the city, with his wounds untreadet. On his way he left a short blood trail behind him.\n"
 		"The dark has fallen\n"
@@ -511,8 +590,220 @@ void RestCityRefuse()
 		"       |                 |           |\n"
 		"        \\              \\\\|           |//\n"
 		"  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
-		"Just to feel better \\^_^/\n"
-		"GAME OVER";
+		"		Just to feel better \\_ ^_^ _/\n"
+		"  _____                         ____                 \n"
+		" / ____|                       / __ \\                \n"
+		"| |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __ \n"
+		"| | |_ |/ _` | '_ ` _ \\ / _ \\ | |  | \\ \\ / / _ \\ '__|\n"
+		"| |__| | (_| | | | | | |  __/ | |__| |\\ V /  __/ |   \n"
+		" \\_____|\\__,_|_| |_| |_|\\___|  \\____/  \\_/ \\___|_|   \n";
+	std::string random;
+	std::cin.ignore();
+	std::cin >> random;
+}
+
+void RestCityAccept()
+{
+	system("cls");
+	std::cout << "The DemiGod chooses to stay the night in city of BurkPlace\n"
+		"Eventually he found a tavern with a big sign hanging from the ceiling wich said \"Free Room for our customers who take dinner and drink our beer\" "
+		"What more can you wish?, he thought\n"
+		"After eating and drinking a few beers, the lucky DemiGod, got to talk with a preety woman wich introduce herself as quack Raphaela, well known for her miraculous herbage\n"
+		"She healed our hero wounds, and also gifted him a night of passion and some green pounder to smoke\n"
+		"-Oh my, this green powder hit like a dragon!, exclaim the DemiGod\n"
+		"And some visioins about his destiny occurred\n"
+		"He saw himself, with Natas's head in his left hand and Anatos's head in his other hand, screaming \" Father, oh my Father\"\n"
+		"Quite strange if you ask me \n"
+		"After all of this creepy events, he fell asleep\n"
+		"In the morning, all his wounds where cured, his energy was up and he felt like he is invincible\n"
+		"Except, the preety ladi, she was no where to found, she just disappeared\n"
+		"After taking one more meal at the Tavern, our hero resumed his jurney\n";
+	crossroad();
+	int answer;
+	bool goOn;
+	std::cin.ignore();
+	std::cin >> answer;
+	do {
+		switch (answer)
+		{
+		case 1:
+			goOn = true;
+			std::cout << "Hmm, looks like you have some memory loses, the city is exactly the first place that you had visited\n"
+				"I think that that green powder is still tickling your brain\n"
+				"C'mon, try something new, don't you want an adventure????(~^-^)~\n";
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Choose your path : 1 or 2 or 3... \n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		case 2:
+			std::cout << "Now, i don't know if you tried all the buttons in the last scene, but if you don't I will tell you:\n"
+				"This is a verry dangerous road, you need to gain some more experience to pass.\n"
+				"And if you already pressed 2 in last scene, damn, that really need to be smoething with that green powder.\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Choose your path : 1 or 2 or 3...\n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		case 3:
+			goOn = false;
+			system("cls");
+			break;
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2 or 3!\n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		}
+	} while (goOn);
+}
+
+void SceneTheForestDead(Player* player, Enemy* enemy)
+{
+	crossroad();
+	int answer;
+	bool goOn;
+	std::cin.ignore();
+	std::cin >> answer;
+	do
+	{
+		switch (answer)
+		{
+		case 1:
+			goOn = true;
+			std::cout << "Hmm, looks like you have some memory loses, the city is exactly the first place that you had visited\n"
+				"I think that that green powder is still tickling your brain\n"
+				"C'mon, try something new, don't you want an adventure????(~^-^)~\n";
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Choose your path : 1 or 2 or 3... \n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		case 2:
+			PlaySound(NULL, 0, 0);
+			PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+			system("cls");
+			std::cout << "So the Carpathian Mountain, this place if full of daemons and vampires\n"
+				"Oh, speaking about them, right in front of you Anatos and his lovely horde, now good luck fighting that with so few stats\n";
+			enemy->PrintEnemyStats();
+			std::cout << "Above you have your enemy stats\n"
+				"All of this being said\n"
+				"LEEEEEEETTTTSSSSS GEEEEEEEEEEEEET RRRRRRRRRRREEADY TOOOOOOOO RRRRUMBLEEEEEE\n";
+			Sleep(5000);
+			FightScene(player, enemy);
+			system("cls");
+			std::cout << "Yea, mate, big loss, but be happy, you just found out another Ending\n"
+				"In this one you end up burried in the garden of Anatos's Castel\n"
+				"Nice Job!\n"
+				"Ah, and don't forget the tumb\n";
+			deadArt();
+			break;
+		case 3:
+			goOn = true;
+			std::cout << "Really?\n"
+				"You my friend, just ran away from a stupid Orch and now you want to get back\n"
+				"You got some balls to press 3 my Amigo, but this is not how this game works\n"
+				"First you are scared and now you are the Big Knight on a wite horse or something like that?\n"
+				"Nah, nah, nah, nah, You my worthy, friend are going to face Anatos in the Carpathian Mountains, and I will enjoy it\n";
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Choose your path : 1 or 2 or 3...\n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2 or 3!\n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		}
+	} while (goOn);
+}
+
+bool SceneTheForest(Player* player,Enemy* enemy)
+{
+	system("cls");
+	std::cout << "The Forest of the Hanged to be\n"
+		"There is a urban legend that in this Forest, people come to take them life by hanging themselves\n"
+		"Also another legend is saing that people who come here to picnic end up being hanged by some Devilish creatures, some of them call them deamons, others call them vampires\n"
+		"Of course non of the legends are true, because we all know vampires feed form the blood of innocent people, and they also live in the Carpathian Mountains\n"
+		"In reality this Forest is ruled by some Orchs, some big, ugly and stinky creatures, wich cares only about war and torture\n"
+		"   /\\/\\|/\\/\\\n"
+		"{{{{{{{|}}}}}}}\n"
+		"/\\{<o | | o<}/\\\n"
+		"\\\\\\  ),_,(  ///\n"
+		"(_/\\       /\\_)\n"
+		"   | V^^V |\n"
+		"    \\_)_(/\n"
+		"They are the true reason why people are hanged in trees, after being tortured.\n"
+		"Oh, speaking about ugly creatures, right in front of you, not so far away there is a big one\n"
+		"You can see his stats on your screen:\n";
+	enemy->PrintEnemyStats();
+	std::cout << "You can choos to fight him, or to get back to the crossroad...\n"
+	"Press 1 to fight the Orch <<<<<----->>>>> Press 2 to get back to the Crossroad\n";
+	int answer;
+	bool goOn;
+	std::cin.ignore();
+	std::cin >> answer;
+	do {
+		switch (answer)
+		{
+		case 1:
+			goOn = false;
+			system("cls");
+			return true;
+			break;
+		case 2:
+			goOn = false;
+			system("cls");
+			player->increaseLevel();
+			return false;
+			break;
+			
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2 !\n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		}
+	} while (goOn);
 }
 
 
