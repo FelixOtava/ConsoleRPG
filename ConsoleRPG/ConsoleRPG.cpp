@@ -7,28 +7,23 @@ int main()
 	Player* mainCharacter = NULL;
 	if (IntroScene1()) {
 		std::string MainUserName = IntroScene2();
-		int chooseClass = IntroScene3(MainUserName);
-		switch (chooseClass) {
+		switch (IntroScene3(MainUserName))
+		{
 		case 1:
 			mainCharacter = new Warrior(MainUserName);
+			CharacterCreationArt(1);
 			break;
 
 		case 2:
 			mainCharacter = new Wizard(MainUserName);
+			CharacterCreationArt(2);
 			break;
 		}
-		CharacterCreationArt(chooseClass);
 		SceneChestIntro(Scene3Travel(MainUserName));
-		Item* weapon = mainCharacter->CreateWeapon();
-		Item* armour = mainCharacter->CreateArmour();
-		mainCharacter->AddItem(weapon);
-		mainCharacter->AddItem(armour);
-		mainCharacter->equipItem(1);
-		mainCharacter->IncreaseStats(1);
-		mainCharacter->equipItem(2);
-		mainCharacter->IncreaseStats(2);
+		mainCharacter->AddItem(mainCharacter->CreateWeapon());
+		mainCharacter->AddItem(mainCharacter->CreateArmour());
 		SceneEquiping(mainCharacter);
-		SceneTheCity(mainCharacter);
+		SceneTheCity(mainCharacter,GenerateEnemy(mainCharacter));
 		FightSceneThief(mainCharacter,GenerateEnemy(mainCharacter));
 		if (RestCity(mainCharacter)) 
 		{

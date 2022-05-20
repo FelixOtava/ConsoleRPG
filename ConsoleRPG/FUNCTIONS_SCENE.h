@@ -1,6 +1,7 @@
 #pragma once
 #pragma comment(lib,"winmm.lib")
-#include"Player.h"
+#include"Warrior.h"
+#include"Wizard.h"
 #include "Theif.h"
 #include "Orch.h"
 #include "Anatos.h"
@@ -21,7 +22,7 @@ void CharacterCreationArt(int wizOrWar);
 int Scene3Travel(std::string name);
 void SceneChestIntro(int choice);
 void SceneEquiping(Player* player);
-void SceneTheCity(Player *player);
+void SceneTheCity(Player *player, Enemy* enemy);
 void FightSceneThief(Player* player, Enemy* enemy);
 Enemy* GenerateEnemy(Player* player);
 bool RestCity(Player* player);

@@ -406,13 +406,17 @@ void SceneChestIntro(int choice)
 
 }
 
-void SceneEquiping(Player * player)
+void SceneEquiping(Player* player)
 {
+	player->equipItem(1);
+	player->IncreaseStats(1);
+	player->equipItem(2);
+	player->IncreaseStats(2);
 	std::cout << "You got some good stuff in that chest, seems like your father let them here for you to find out\n"
 		"I will help you and autoequip them, but for the next time you will be able to equip/unequip the items you want\n\n";
 	player->PrintInventory();
 	std::cout << "\n Up there is your inventory, you can see your items, theirs stats, and the status (equiped/unequiped)\n"
-		"And donw here is your stats, you can see stats like Healts, AttackPower and so on, this will be usefoul in the future\n\n";
+		"And down here is your stats, you can see stats like Healts, AttackPower and so on, this will be usefoul in the future\n\n";
 	player->PrintStats();
 	std::cout << "Press any key to continue...\n";
 	std::string random;
@@ -421,7 +425,7 @@ void SceneEquiping(Player * player)
 	
 }
 
-void SceneTheCity(Player *player)
+void SceneTheCity(Player *player, Enemy* enemy)
 {
 	system("cls");
 	std::cout << "So the City of BurkPalace, a verry good choice for your first adventure (keep this between us but you really have not much of a chose)\n"
@@ -434,12 +438,14 @@ void SceneTheCity(Player *player)
 		" /\\_/\\\n"
 		"(='_' )\n"
 		"(, (\") (\")\n"
-		"-HMM, looks like a strange cat, said the DemiGod." 
+		"-HMM, looks like a strange cat, said the DemiGod."
 		"But when he got closer to pet it, a thief jump out of a bush and sneak his weapon.\n"
 		"After this scene, a moment of silence and wonder appears, while the thief manages to take a few quick steps to escape with the prey."
 		"-Hey you, STOP over there, you slipery rat, exclaim the DemiGod, before throwing a rock which hit the thief in the head;\n"
-		"In few seconds, "<<player->getPlayerName()<<" catches the thief, who struggle to escape.\n"
-		"Seems like you need to fight the thief, because his intentions are to cut your heart out of the chest with your own sword;\n"
+		"In few seconds, " << player->getPlayerName() << " catches the thief, who struggle to escape.\n";
+		enemy->PrintEnemyStats();
+		std::cout << std::endl;
+		std::cout<<"Seems like you need to fight the thief, because his intentions are to cut your heart out of the chest with your own sword;\n"
 		"All of this being said, a duel had begun.\n";
 		player->unequipItem(1);
 		player->DecreaseStats(1);

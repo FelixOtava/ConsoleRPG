@@ -7,8 +7,8 @@ int Warrior::Attack()
 Warrior::Warrior(std::string name)
 {
 	this->playerName = name;
-	this->health = 200;
-	this->maxHealth = 800;
+	this->maxHealth = 500;
+	this->health = 800;
 	this->attackPower = 45;
 	this->abilityPower = 1;
 	this->dexterity = 5;
@@ -51,7 +51,7 @@ Item* Warrior::CreateArmour()
 		armour->createItem("Moonlight Plate", lvl * 15, lvl * 2, lvl * 5, lvl * 1);
 		break;
 	case 3:
-		armour->createItem("MorningStar Shield ", lvl * 40, lvl * 8, lvl * 5, lvl * 10);
+		armour->createItem("MorningStar Shield ", lvl * 40, lvl * 8, lvl * 12, lvl * 10);
 		break; 
 	case 4 :
 		armour->createItem("Anatos tooth Necklace ", lvl * 30, lvl * 2, lvl * 5, lvl * 1);

@@ -3,8 +3,8 @@
 Anatos::Anatos()
 {
 	name = "Anatos";
-	health = 35180;
-	attackDamage = 300;
+	health = 31180;
+	attackDamage = 270;
 }
 
 void Anatos::PrintEnemyStats()

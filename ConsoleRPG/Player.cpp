@@ -7,12 +7,12 @@ int Player::Attack()
 }
 Player::Player() {
 	this->playerName = "Username";
-	this->maxHealth = 0;
-	this->health = 0;
-	this->attackPower = 0;
-	this->abilityPower = 0;
-	this->dexterity = 0;
-	this->inteligence = 0;
+	this->maxHealth = 1;
+	this->health = 1;
+	this->attackPower = 1;
+	this->abilityPower = 1;
+	this->dexterity = 1;
+	this->inteligence = 1;
 }
 Player::~Player()
 {
@@ -26,7 +26,7 @@ void Player::PrintStats() {
 
 void Player::increaseHealth(int hp)
 {
-	this->maxHealth *= hp/2;
+	this->maxHealth *= (hp/2);
 }
 
 void Player::increaseAttackPower(int attack)

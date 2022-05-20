@@ -24,9 +24,6 @@
     <ClCompile Include="Warrior.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Wizard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FUNCTIONS_SCENE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,15 +45,15 @@
     <ClCompile Include="Natas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Wizard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Warrior.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Wizard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FUNCTIONS_SCENE.h">
@@ -78,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Natas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Wizard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

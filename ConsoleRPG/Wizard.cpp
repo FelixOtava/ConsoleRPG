@@ -1,17 +1,17 @@
 #include "Wizard.h"
 int Wizard::Attack()
 {
-	return abilityPower+attackPower+inteligence;
+	return abilityPower + attackPower + inteligence;
 }
 
- Wizard::Wizard(std::string name)
+Wizard::Wizard(std::string name)
 {
 	this->playerName = name;
-	this->health = 100;
-	this->maxHealth = 450;
+	this->maxHealth = 300;
+	this->health = 300;
 	this->attackPower = 1;
 	this->abilityPower = 95;
-	this->dexterity = 1;
+	this->dexterity = 2;
 	this->inteligence = 5;
 	this->level = 1;
 }
@@ -27,11 +27,11 @@ Item* Wizard::CreateWeapon()
 {
 	int lvl = getLevel();
 	Item* staff = new Item;
-	switch (lvl) 
+	switch (lvl)
 	{
 	case 1:
-	staff->createItem("Sirius's Staff", lvl * 1, lvl * 10, lvl * 3, lvl * 10);
-	break;
+		staff->createItem("Sirius's Staff", lvl * 1, lvl * 10, lvl * 2, lvl * 10);
+		break;
 	default:
 		std::cout << "You have no lvl\n";
 		break;
@@ -47,10 +47,10 @@ Item* Wizard::CreateArmour()
 		cloat->createItem("Sirius Cloat", lvl * 1, lvl * 8, lvl * 2, lvl * 5);
 		break;
 	case 2:
-		cloat->createItem("Letter gloves" ,lvl * 2, lvl * 5, lvl * 13, lvl * 5);
+		cloat->createItem("Letter gloves", lvl * 2, lvl * 5, lvl * 9, lvl * 5);
 		break;
 	case 3:
-		cloat->createItem("Wind's wisper boots", lvl * 2, lvl * 5, lvl * 18, lvl * 5);
+		cloat->createItem("Wind's wisper boots", lvl * 10, lvl * 20, lvl * 7, lvl * 26);
 		break;
 	case  4:
 		cloat->createItem("Anatos's eye Ring", lvl * 2, lvl * 5, lvl * 23, lvl * 5);
@@ -65,9 +65,3 @@ void Wizard::AddItem(Item* item)
 {
 	inventory.push_back(item);
 }
-
-
-
-
-
-
