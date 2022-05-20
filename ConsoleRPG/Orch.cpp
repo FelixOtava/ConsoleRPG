@@ -3,8 +3,8 @@
 Orch::Orch()
 {
 	name = "Black orch";
-	health = 1200;
-	attackDamage = 100;
+	health = 800;
+	attackDamage = 280;
 }
 
 void Orch::PrintEnemyStats()

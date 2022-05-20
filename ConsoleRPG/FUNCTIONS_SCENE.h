@@ -11,7 +11,7 @@
 #include<iomanip>
 
 
-
+void FightScene(Player* player,Enemy* enemy);
 void crossroad();
 void deadArt();
 bool IntroScene1();
@@ -22,10 +22,12 @@ int Scene3Travel(std::string name);
 void SceneChestIntro(int choice);
 void SceneEquiping(Player* player);
 void SceneTheCity(Player *player);
-void FightScene(Player* player, Enemy* enemy);
+void FightSceneThief(Player* player, Enemy* enemy);
 Enemy* GenerateEnemy(Player* player);
 bool RestCity(Player* player);
 void RestCityRefuse();
 void RestCityAccept();
 void SceneTheForestDead(Player* player, Enemy* enemy);
 bool SceneTheForest(Player* player,Enemy* enemy);
+void SceneForestAfterBattle(Player* player);
+void SceneMountains(Player* player,Enemy* enemy);

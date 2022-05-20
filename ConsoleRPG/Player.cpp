@@ -26,7 +26,7 @@ void Player::PrintStats() {
 
 void Player::increaseHealth(int hp)
 {
-	this->maxHealth *= hp;
+	this->maxHealth *= hp/2;
 }
 
 void Player::increaseAttackPower(int attack)

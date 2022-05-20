@@ -3,8 +3,8 @@
 Theif::Theif()
 {
 	this->name = "Rei (a misery burgler and child rapist)";
-	health = 1400;
-	attackDamage = 60;
+	health = 300;
+	attackDamage = 35;
 }
 
 

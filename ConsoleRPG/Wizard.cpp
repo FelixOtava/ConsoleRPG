@@ -1,7 +1,7 @@
 #include "Wizard.h"
 int Wizard::Attack()
 {
-	return abilityPower;
+	return abilityPower+attackPower+inteligence;
 }
 
  Wizard::Wizard(std::string name)
@@ -47,13 +47,13 @@ Item* Wizard::CreateArmour()
 		cloat->createItem("Sirius Cloat", lvl * 1, lvl * 8, lvl * 2, lvl * 5);
 		break;
 	case 2:
-		cloat->createItem("Letter gloves" ,lvl * 1, lvl * 5, lvl * 2, lvl * 5);
+		cloat->createItem("Letter gloves" ,lvl * 2, lvl * 5, lvl * 13, lvl * 5);
 		break;
 	case 3:
-		cloat->createItem("Wind's wisper boots", lvl * 1, lvl * 5, lvl * 2, lvl * 5);
+		cloat->createItem("Wind's wisper boots", lvl * 2, lvl * 5, lvl * 18, lvl * 5);
 		break;
 	case  4:
-		cloat->createItem("Anatos's eye Ring", lvl * 1, lvl * 5, lvl * 2, lvl * 5);
+		cloat->createItem("Anatos's eye Ring", lvl * 2, lvl * 5, lvl * 23, lvl * 5);
 		break;
 	default:
 		std::cout << "You have no lvl\n";

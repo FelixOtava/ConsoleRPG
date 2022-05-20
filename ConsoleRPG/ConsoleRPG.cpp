@@ -29,24 +29,24 @@ int main()
 		mainCharacter->IncreaseStats(2);
 		SceneEquiping(mainCharacter);
 		SceneTheCity(mainCharacter);
-		FightScene(mainCharacter,GenerateEnemy(mainCharacter));
+		FightSceneThief(mainCharacter,GenerateEnemy(mainCharacter));
 		if (RestCity(mainCharacter)) 
 		{
 			RestCityAccept();
 			if (SceneTheForest(mainCharacter, GenerateEnemy(mainCharacter)))
 			{
-				
+				SceneForestAfterBattle(mainCharacter);
 			}
-			else
+			else 
 			{
-				SceneTheForestDead(mainCharacter,GenerateEnemy(mainCharacter));
+				SceneTheForestDead(mainCharacter, GenerateEnemy(mainCharacter));
 			}
 		}
 		else 
 		{
 			RestCityRefuse();
 		}
-		
+		SceneMountains(mainCharacter, GenerateEnemy(mainCharacter));
 
 		
 	}

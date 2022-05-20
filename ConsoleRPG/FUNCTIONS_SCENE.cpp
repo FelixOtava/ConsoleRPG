@@ -1,5 +1,44 @@
 #include "FUNCTIONS_SCENE.h"
 
+void FightScene(Player* player, Enemy* enemy)
+{
+	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	int playerAttack, enemyAttack, playerHealth, enemyHealth;
+	playerAttack = player->Attack();
+	enemyAttack = enemy->Attack();
+	playerHealth = player->getHealth();
+	enemyHealth = enemy->getHealth();
+	do
+	{
+		enemyHealth -= playerAttack;
+		std::cout << "Enemy's health after you have attacked: " << enemyHealth << std::endl;
+		//Sleep(100);
+		if (enemyHealth <= 0)
+			break;
+		playerHealth -= enemyAttack;
+		std::cout << "Your health after Enemy have attacked: " << playerHealth << std::endl;
+		//Sleep(100);
+		if (playerHealth <= 0)
+			break;
+	} while (enemyHealth >= 0 || playerHealth >= 0);
+	if (enemyHealth < playerHealth)
+	{
+		std::cout << "You Won\n";
+		player->setPlayerHealth(playerHealth);
+		player->increaseLevel();
+	}
+	else {
+	std::cout << "You Lose\n";
+	deadArt();
+	}
+	std::cout << "Press any key to continue...\n";
+	delete enemy;
+	std::string random;
+	std::cin.ignore();
+	std::cin >> random;
+}
+
 void crossroad()
 {
 	std::cout<<"Reached the crossroads again, the DemiGod, have to choose another way\n"
@@ -43,6 +82,7 @@ void deadArt()
 bool IntroScene1()
 {
 	PlaySound(TEXT("Main_Menu.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	std::cout << "				  The adventure of a DemiGod\n";
 	std::cout << "		,_.                                                          ,_.\n";
 	std::cout << "		'\\cXX.==- __                                        __ -==,XXv/`\n";
 	std::cout << "		    ~=_X7~ ,/~!g=-,_.                      ,_.-=s!~L. ~TX_=~\n";
@@ -409,7 +449,7 @@ void SceneTheCity(Player *player)
 		std::cin >> random;
 }
 
-void FightScene(Player* player, Enemy* enemy)
+void FightSceneThief(Player* player, Enemy* enemy)
 {
 	PlaySound(NULL, 0, 0);
 	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
@@ -422,12 +462,12 @@ void FightScene(Player* player, Enemy* enemy)
 	{
 		enemyHealth -= playerAttack;
 		std::cout <<"Enemy's health after you have attacked: " << enemyHealth << std::endl;
-		Sleep(100);
+		//Sleep(100);
 		if (enemyHealth <= 0)
 			break;
 		playerHealth -= enemyAttack;
 		std::cout <<"Your health after Enemy have attacked: " << playerHealth << std::endl;
-		Sleep(100);
+		//Sleep(100);
 		if (playerHealth <= 0)
 			break;
 	} while (enemyHealth >=0 || playerHealth >=0);
@@ -442,6 +482,7 @@ void FightScene(Player* player, Enemy* enemy)
 		std::cout << "You Lose\n";
 	player->setPlayerHealth(playerHealth);
 	std::cout<<"Press any key to continue...\n";
+	delete enemy;
 	std::string random;
 	std::cin.ignore();
 	std::cin >> random;
@@ -494,7 +535,8 @@ bool RestCity(Player* player)
 		switch (answer1)
 		{
 		case 1: {
-			player->equipItem(2);
+			player->equipItem(3);
+			player->IncreaseStats(3);
 			system("cls");
 			std::cout << "Item was equiped\n";
 			break;
@@ -563,8 +605,6 @@ bool RestCity(Player* player)
 void RestCityRefuse()
 {
 	system("cls");
-	PlaySound(NULL, 0, 0);
-	PlaySound(TEXT("EndSong.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	std::cout << "Preety well, so our Hero chooses to see his way\n"
 		"He left the city, with his wounds untreadet. On his way he left a short blood trail behind him.\n"
 		"The dark has fallen\n"
@@ -574,29 +614,8 @@ void RestCityRefuse()
 		"He and other 2 daemon, Comanders of his horde\n\n"
 		"Now, you can think, i reall don't want to say 'I told you to' I also let u a hidden message, remember ?\n"
 		"\"and also night can harm the harmony\"\n"
-		"Yea, it's obvious that you died, but don't be sad, i prepare a tombstone for you\n"
-		"        _.---,._,'\n"
-		"      /' _.--.<\n"
-		"        /'     `'\n"
-		"      /' _.---._____\n"
-		"      \.'   ___, .-'`\n"
-		"          /'    \\\\             .\n"
-		"        /'       `-.          -|-\n"
-		"       |                       |\n"
-		"       |                   .-'~~~`-.\n"
-		"       |                 .'         `.\n"
-		"       |                 |  R  I  P  |\n"
-		"       |                 |           |\n"
-		"       |                 |           |\n"
-		"        \\              \\\\|           |//\n"
-		"  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
-		"		Just to feel better \\_ ^_^ _/\n"
-		"  _____                         ____                 \n"
-		" / ____|                       / __ \\                \n"
-		"| |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __ \n"
-		"| | |_ |/ _` | '_ ` _ \\ / _ \\ | |  | \\ \\ / / _ \\ '__|\n"
-		"| |__| | (_| | | | | | |  __/ | |__| |\\ V /  __/ |   \n"
-		" \\_____|\\__,_|_| |_| |_|\\___|  \\____/  \\_/ \\___|_|   \n";
+		"Yea, it's obvious that you died, but don't be sad, i prepare a tombstone for you\n";
+	deadArt();
 	std::string random;
 	std::cin.ignore();
 	std::cin >> random;
@@ -704,7 +723,7 @@ void SceneTheForestDead(Player* player, Enemy* enemy)
 			PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
 			system("cls");
 			std::cout << "So the Carpathian Mountain, this place if full of daemons and vampires\n"
-				"Oh, speaking about them, right in front of you Anatos and his lovely horde, now good luck fighting that with so few stats\n";
+				"Oh, speaking about them, right in front of you appeard Anatos and his lovely horde, now good luck fighting that with so few stats\n";
 			enemy->PrintEnemyStats();
 			std::cout << "Above you have your enemy stats\n"
 				"All of this being said\n"
@@ -767,9 +786,12 @@ bool SceneTheForest(Player* player,Enemy* enemy)
 		"    \\_)_(/\n"
 		"They are the true reason why people are hanged in trees, after being tortured.\n"
 		"Oh, speaking about ugly creatures, right in front of you, not so far away there is a big one\n"
-		"You can see his stats on your screen:\n";
+		"You can see his stats on your screen:\n\n";
 	enemy->PrintEnemyStats();
-	std::cout << "You can choos to fight him, or to get back to the crossroad...\n"
+	std::cout<<std::endl;
+	player->PrintStats();
+	std::cout << "\nAlso your stats are printed on the screen above this message\n"
+		"You can choos to fight him, or to get back to the crossroad...\n"
 	"Press 1 to fight the Orch <<<<<----->>>>> Press 2 to get back to the Crossroad\n";
 	int answer;
 	bool goOn;
@@ -781,6 +803,7 @@ bool SceneTheForest(Player* player,Enemy* enemy)
 		case 1:
 			goOn = false;
 			system("cls");
+			FightScene(player, enemy);
 			return true;
 			break;
 		case 2:
@@ -804,6 +827,201 @@ bool SceneTheForest(Player* player,Enemy* enemy)
 			break;
 		}
 	} while (goOn);
+}
+
+void SceneForestAfterBattle(Player* player)
+{
+	system("cls");
+	player->AddItem(player->CreateArmour());
+	std::cout << "Well fought !\n"
+		"He almost got you, that was close, but look, there is a pice of gear on that orch, you may be able to use it\n"
+		"Under this message you can see your inventory, the new item is in the last spot\n"
+		"Press 1 to equip the item <<<<<----->>>>> Press 2 to not equip the item\n";
+	int answer;
+	bool goOn;
+	std::cin.ignore();
+	std::cin >> answer;
+	do {
+		switch (answer)
+		{
+		case 1:
+			goOn = false;
+			player->equipItem(4);
+			player->IncreaseStats(4);
+			std::cout << "Item was equiped\n";
+			break;
+		case 2:
+			goOn = false;
+			std::cout << "Item was not equiped\n";
+			break;
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn = true;
+			std::cin >> answer;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1 or 2 !\n" << std::endl;
+				std::cin >> answer;
+			}
+			break;
+		}
+	} while (goOn);
+
+	std::cout << "Good, now that you made your choise, it's time to rest (if you want to).\n"
+		"But remember, your health is verry low in this moment, is not a good idea to continue without resting.\n"
+		"Press 1 to rest   <<<<<----->>>>> Press 2 to keep going\n";
+	
+	int ans;
+	bool goOn1; 
+	std::cin.ignore();
+	std::cin >> ans;
+	do {
+		switch (ans)
+		{
+		case 1:
+			goOn1 = false;
+			system("cls");
+			player->updateHealth();
+			std::cout << "In that night, every thing could happend, the DemiGod was alone in the forest, surrounded by evil creatures.\n"
+				"He was so afraid to fall asleep, because he was not in the best shape.\n"
+				"But from the dark he heard a kind voice, telling him:\n"
+				"-Be not afraid, my love, i will keep you safe and alive until morning.\n"
+				"After few seconds, in his site, the beauty Raphaela, appeard.\n"
+				"Beside being a quack, she is also one of the most powerfull witches in the world.\n"
+				"She took care of the DemiGod and in the morning he felt better than ever, and like the last time, the witch was gone and no where to find\n"
+				"With his new pice of gear, and his wounds heald, our hero resumed his quest\n";
+			crossroad();
+			int answer;
+			bool goOn;
+			std::cin >> answer;
+			do {
+				switch (answer)
+				{
+				case 1:
+					goOn = true;
+					std::cout << "Hmm, looks like you have some memory loses, the city is exactly the first place that you had visited\n"
+						"I think that that green powder is still tickling your brain\n"
+						"C'mon, try something new, don't you want an adventure????(~^-^)~\n";
+					std::cin >> answer;
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore();
+						std::cout << "Choose your path : 1 or 2 or 3... \n" << std::endl;
+						std::cin >> answer;
+					}
+					break;
+				case 2:
+					goOn = false;
+					system("cls");
+					std::cout << "Ah finally the Carpahtian Mountains, house of daemons and vampires\n"
+						"There are rumours that Dracula (the lord Vlad Tepes) is still somewhere in the mountains\n\n";
+					break;
+				case 3:
+					std::cout << "This is the place from where you just came, the Orch is dead, the gear is yours\n"
+						"Maybe you should try something more unknown, and challenging\n"
+						"Like road nr.2 ???? for example (Im just saing)\n";
+					std::cin >> answer;
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore();
+						std::cout << "Choose your path : 1 or 2 or 3... \n" << std::endl;
+						std::cin >> answer;
+					}
+					goOn = true;
+					break;
+				default:
+					std::cout << "Wrong key, try again\n";
+					goOn = true;
+					std::cin >> answer;
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore();
+						std::cout << "Press 1, 2 or 3!..." << std::endl;
+						std::cin >> answer;
+					}
+					break;
+				}
+			} while (goOn);
+			break;
+		case 2:
+			goOn1 = false;
+			system("cls");
+			break;
+		default:
+			std::cout << "Wrong key, try again\n";
+			goOn1 = true;
+			std::cin >> ans;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
+				std::cout << "Press 1, 2 or 3!...\n" << std::endl;
+				std::cin >> ans;
+			}
+			break;
+		}
+	} while (goOn1);
+}
+
+void SceneMountains(Player* player, Enemy* enemy)
+{
+	std::cout << "The Carpathian Mountains, the most beautiful place in the world.\n"
+		"Also the most dangerous, by the time of Natas descendence on the earth, he picked this place to build his magical Castel, because of it greateness.\n"
+		"After building his castel, Natas had ordered to Anatos to bring all his daemons around it, and to guard the monstrous building with the price of his own life.\n"
+		"All this years, Anatos easily denfended the castel from being conquered. \n"
+		"Them biggest enemy was, Vlad Tepes, nicknamed \"Dracula\" or \"Vlad the Impaler\". \n"
+		"But not even Vlad, well known for his brutality in war, could conquer the Castel, and release the world form Natas and Anatos.\n"
+		"Some of the urban legends concocted by wizards and witches rumored that only a half God, half Human can bring peace in the world, others tells that only a human with the help of a hybrid creature can cure the world from the evil.\n"
+		"Maybe, the most wanted day in the whole humanity had to come.\n";
+	std::cout << std::endl;
+	std::cout << "After walking alone through the narrow paths of the mountain, the DemiGod started to hear some voices.\n"
+		"He sneak up in a tree, and wait for few seconds, before 3 men arrived.\n"
+		"They where Anatos, and his 2 Generals.\n"
+		"The generals vanished after Anatos gave them some orders, letting him behind.\n"
+		"Now is my time, " << player->getPlayerName() << " thought\n"
+		"Under this message you can see Anatos's stats, and also yours\n";
+	enemy->PrintEnemyStats();
+	player->PrintStats();
+		std::cout<<"Press 1 to challange him and have a fair fight <<<<<----->>>> Press 2 to ambush Anatos \n";
+	int ans;
+	bool goOn;
+	std::cin.ignore();
+	std::cin >> ans;
+	do {
+		switch (ans)
+		{
+		case 1:
+			system("cls");
+			goOn = false;
+			std::cout << "-Hey, you bastard daemon, come and fight me!";
+			break;
+		case 2:
+			system("cls");
+			goOn = false;
+			enemy->setHealth(enemy->getHealth() / 2);
+			std::cout << "A perfect ambush, you mannage to hit Anatos really hard\n"
+				"Your strike left anatos with half on his Health\n";
+			break;
+		default:
+		std::cout << "Wrong key, try again\n";
+		goOn = true;
+		std::cin >> ans;
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			std::cout << "Press 1, 2 or 3!...\n" << std::endl;
+			std::cin >> ans;
+		}
+		break;
+		}
+	} while (goOn);
+	FightScene(player, enemy);
 }
 
 

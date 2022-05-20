@@ -1,7 +1,7 @@
 #include "Warrior.h"
 int Warrior::Attack()
 {
-	return attackPower;
+	return attackPower+abilityPower+inteligence;
 }
 
 Warrior::Warrior(std::string name)
@@ -29,7 +29,7 @@ Item* Warrior::CreateWeapon()
 	switch (lvl)
 	{
 	case 1:
-		sword->createItem("Dante's Sword", lvl * 10, lvl * 1, lvl * 3, lvl * 1);
+		sword->createItem("Dante's Sword", lvl * 10, lvl * 1, lvl * 3, lvl * 3);
 		break;
 	default:
 		std::cout << "You have no lvl\n";
@@ -45,16 +45,16 @@ Item* Warrior::CreateArmour()
 	Item* armour = new Item;
 	switch (lvl) {
 	case 1:
-		armour->createItem("Dante's Helmet", lvl * 10, lvl * 1, lvl * 2, lvl * 1);
+		armour->createItem("Dante's Helmet", lvl * 10, lvl * 1, lvl * 5, lvl * 1);
 		break;
 	case 2:
-		armour->createItem("Moonlight Plate", lvl * 10, lvl * 1, lvl * 2, lvl * 1);
+		armour->createItem("Moonlight Plate", lvl * 15, lvl * 2, lvl * 5, lvl * 1);
 		break;
 	case 3:
-		armour->createItem("MorningStar Shield ", lvl * 10, lvl * 1, lvl * 2, lvl * 1);
+		armour->createItem("MorningStar Shield ", lvl * 40, lvl * 8, lvl * 5, lvl * 10);
 		break; 
 	case 4 :
-		armour->createItem("Anatos tooth Necklace ", lvl * 10, lvl * 1, lvl * 2, lvl * 1);
+		armour->createItem("Anatos tooth Necklace ", lvl * 30, lvl * 2, lvl * 5, lvl * 1);
 		break;
 	default:
 		std::cout << "You have no lvl\n";

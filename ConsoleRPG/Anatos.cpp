@@ -3,7 +3,7 @@
 Anatos::Anatos()
 {
 	name = "Anatos";
-	health = 15000;
+	health = 35180;
 	attackDamage = 300;
 }
 
