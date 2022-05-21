@@ -144,6 +144,7 @@
     <ClCompile Include="ConsoleRPG.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FUNCTIONS_SCENE.cpp" />
+    <ClCompile Include="Impaler.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Natas.cpp" />
     <ClCompile Include="Orch.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Anatos.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FUNCTIONS_SCENE.h" />
+    <ClInclude Include="Impaler.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Natas.h" />
     <ClInclude Include="Orch.h" />

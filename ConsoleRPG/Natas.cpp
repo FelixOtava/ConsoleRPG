@@ -3,8 +3,8 @@
 Natas::Natas()
 {
 	name = "Natas";
-	health = 150000;
-	attackDamage = 1000;
+	health = 3000000;
+	attackDamage = 1600;
 }
 
 void Natas::PrintEnemyStats()

@@ -32,3 +32,6 @@ void SceneTheForestDead(Player* player, Enemy* enemy);
 bool SceneTheForest(Player* player,Enemy* enemy);
 void SceneForestAfterBattle(Player* player);
 void SceneMountains(Player* player,Enemy* enemy);
+void SceneMountainsVictory(Player* player);
+void SceneNatas(Player* player);
+void EndGameFight(Player* player, Enemy* enemy,Enemy* Vlad);

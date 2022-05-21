@@ -53,7 +53,7 @@ Item* Wizard::CreateArmour()
 		cloat->createItem("Wind's wisper boots", lvl * 10, lvl * 20, lvl * 7, lvl * 26);
 		break;
 	case  4:
-		cloat->createItem("Anatos's eye Ring", lvl * 2, lvl * 5, lvl * 23, lvl * 5);
+		cloat->createItem("Anatos's eye Ring", lvl * 40, lvl * 80, lvl * 40, lvl * 80);
 		break;
 	default:
 		std::cout << "You have no lvl\n";

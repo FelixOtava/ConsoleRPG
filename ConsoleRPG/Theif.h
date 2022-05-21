@@ -7,8 +7,5 @@ public:
     Theif();
     inline virtual ~Theif() {};
     void PrintEnemyStats();
-    inline void EnemyAttack() {};
-   
-
 };
 

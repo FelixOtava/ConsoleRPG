@@ -7,6 +7,5 @@ public:
     Natas();
     inline virtual ~Natas() {};
     void PrintEnemyStats();
-    inline void EnemyAttack() {};
 };
 

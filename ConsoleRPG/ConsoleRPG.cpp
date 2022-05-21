@@ -1,6 +1,7 @@
 #include "FUNCTIONS_SCENE.h"
 #include"Warrior.h"
 #include"Wizard.h"
+#include "Impaler.h"
 
 int main()
 {
@@ -42,15 +43,16 @@ int main()
 			RestCityRefuse();
 		}
 		SceneMountains(mainCharacter, GenerateEnemy(mainCharacter));
-
-		
+		SceneMountainsVictory(mainCharacter);
+		SceneNatas(mainCharacter);
+		Enemy* sideCharacter = new Impaler();
+		EndGameFight(mainCharacter, GenerateEnemy(mainCharacter), sideCharacter);
 	}
 	else {
 		if (mainCharacter == NULL) {
 			std::cout << "I knew you are not brave enough\n";
 		}
 	}
-
 
 	delete mainCharacter;
 	

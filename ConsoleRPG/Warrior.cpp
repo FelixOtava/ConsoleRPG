@@ -54,7 +54,7 @@ Item* Warrior::CreateArmour()
 		armour->createItem("MorningStar Shield ", lvl * 40, lvl * 8, lvl * 12, lvl * 10);
 		break; 
 	case 4 :
-		armour->createItem("Anatos tooth Necklace ", lvl * 30, lvl * 2, lvl * 5, lvl * 1);
+		armour->createItem("Anatos tooth Necklace ", lvl * 30, lvl * 30, lvl * 31, lvl * 30);
 		break;
 	default:
 		std::cout << "You have no lvl\n";

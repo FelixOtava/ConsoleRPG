@@ -7,6 +7,5 @@ public:
     Orch();
     inline virtual ~Orch() {};
     void PrintEnemyStats();
-    inline void EnemyAttack() {};
 };
 

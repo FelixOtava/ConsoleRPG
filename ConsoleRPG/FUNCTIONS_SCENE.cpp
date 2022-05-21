@@ -442,7 +442,7 @@ void SceneTheCity(Player *player, Enemy* enemy)
 		"But when he got closer to pet it, a thief jump out of a bush and sneak his weapon.\n"
 		"After this scene, a moment of silence and wonder appears, while the thief manages to take a few quick steps to escape with the prey."
 		"-Hey you, STOP over there, you slipery rat, exclaim the DemiGod, before throwing a rock which hit the thief in the head;\n"
-		"In few seconds, " << player->getPlayerName() << " catches the thief, who struggle to escape.\n";
+		"In few seconds, " << player->getPlayerName() << " catches the thief, who struggle to escape.\n\n";
 		enemy->PrintEnemyStats();
 		std::cout << std::endl;
 		std::cout<<"Seems like you need to fight the thief, because his intentions are to cut your heart out of the chest with your own sword;\n"
@@ -513,6 +513,10 @@ Enemy* GenerateEnemy(Player* player)
 		break;
 	case 4:
 		Enemy = new Anatos();
+		return Enemy;
+		break;
+	case 5:
+		Enemy = new Natas();
 		return Enemy;
 		break;
 	default:
@@ -837,6 +841,8 @@ bool SceneTheForest(Player* player,Enemy* enemy)
 
 void SceneForestAfterBattle(Player* player)
 {
+	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	system("cls");
 	player->AddItem(player->CreateArmour());
 	std::cout << "Well fought !\n"
@@ -976,6 +982,7 @@ void SceneForestAfterBattle(Player* player)
 
 void SceneMountains(Player* player, Enemy* enemy)
 {
+	
 	std::cout << "The Carpathian Mountains, the most beautiful place in the world.\n"
 		"Also the most dangerous, by the time of Natas descendence on the earth, he picked this place to build his magical Castel, because of it greateness.\n"
 		"After building his castel, Natas had ordered to Anatos to bring all his daemons around it, and to guard the monstrous building with the price of his own life.\n"
@@ -990,10 +997,11 @@ void SceneMountains(Player* player, Enemy* enemy)
 		"They where Anatos, and his 2 Generals.\n"
 		"The generals vanished after Anatos gave them some orders, letting him behind.\n"
 		"Now is my time, " << player->getPlayerName() << " thought\n"
-		"Under this message you can see Anatos's stats, and also yours\n";
+		"Under this message you can see Anatos's stats, and also yours\n\n";
 	enemy->PrintEnemyStats();
+	std::cout << std::endl;
 	player->PrintStats();
-		std::cout<<"Press 1 to challange him and have a fair fight <<<<<----->>>> Press 2 to ambush Anatos \n";
+		std::cout<<"\nPress 1 to challange him and have a fair fight <<<<<----->>>> Press 2 to ambush Anatos \n";
 	int ans;
 	bool goOn;
 	std::cin.ignore();
@@ -1010,8 +1018,8 @@ void SceneMountains(Player* player, Enemy* enemy)
 			system("cls");
 			goOn = false;
 			enemy->setHealth(enemy->getHealth() / 2);
-			std::cout << "A perfect ambush, you mannage to hit Anatos really hard\n"
-				"Your strike left anatos with half on his Health\n";
+			std::cout << "A perfect ambush, you mannage to hit Anatos really hard!\n"
+				"Your strike left anatos with half on his Health.\n";
 			break;
 		default:
 		std::cout << "Wrong key, try again\n";
@@ -1028,6 +1036,167 @@ void SceneMountains(Player* player, Enemy* enemy)
 		}
 	} while (goOn);
 	FightScene(player, enemy);
+}
+
+void SceneMountainsVictory(Player* player)
+{
+	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	system("cls");
+	std::cout << "This was a verry close fight, in the last moment the mighty DemiGod managed to take a good strike and end Anatos's life\.n"
+		"This is a big victory not only for you, but for the whole humankind!!!\n"
+		"One of the worst nightmares wich had ever lived the Earth are gone, and you dit it by yourself, you are the real hero from witches legends!\n\n"
+		"After killing Anatos, the beauty Raphaela arrived from the sky.\n"
+		"-(R) I knew you would fulfill the prophecy!, exclaim Raphaela.\n"
+		"-(R) from the first time I felt that you are the chosen one, son of light and dark, created in the Netherrealm and born on Earth,\n"
+		"-(R) peace bringer and daemon slayer, all the myths where true!\n"
+		"-(DG) If you knew, why didn't you told me?\n"
+		"-(DG) this was the reason why you appeard in the most crucial moments of my life?\n"
+		"-(DG) all the herbs where just to show me my futur..... wait, you know how all of this is ending, aren't you?\n"
+		"-(R)....., a long and overwhelming quiet.\n"
+		"-(DG) How will I end up??? And why I was shouting \"Father, oh my Father\" in my vision???"
+		"-(DG) I need to know!\n"
+		"-(R) I can't tell you, all I am able to say is that you need to find an old friend, he will help you get through the tough moments\n"
+		"-(R)And also you need to make a ring, or a necklace from Anatos's eye or tooth, his eyes give you magical powers, and his tooth can bring you strength, but be careful, you can wear only one pice! Choose the one your nature tells you to!\n"
+		"After she heald DemiGod's wunds, she disappeared in the sky, like a falling star in the evening darkness";
+	player->AddItem(player->CreateArmour());
+	player->PrintInventory();
+	player->increaseLevel();
+	std::cout << "After painstakingly crafted your item, you can choose to wear it or not.\n"
+		"Press 1 to Not wear it <<<<<----->>>>> Press 2 to Wear it\n";
+	int answer;
+	bool goOn;
+	std::cin >> answer;
+	switch (answer) 
+	{
+	case 1:
+		goOn = false;
+		system("cls");
+		std::cout << "As you wish\n";
+		break;
+	case 2:
+		goOn = false;
+		system("cls");
+		player->equipItem(5);
+		player->IncreaseStats(5);
+		std::cout << "Item equiped\n";
+		break;
+	default:
+		std::cout << "Wrong key, try again\n";
+		goOn = true;
+		std::cin >> answer;
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			std::cout << "Press 1 or 2 !..." << std::endl;
+			std::cin >> answer;
+		}
+		break;
+	}
+}
+
+void SceneNatas(Player* player)
+{
+	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("EndGame.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	std::cout << "Oh, my! Why do I hear Boss music?\n"
+		"I wonder what Rapahela talked about, \" find a friend\"\n"
+		"No!!!, it can't be, she spoke about Vlad the Impaler\n"
+		"And it happend that i know where you can find him.\n"
+		"You need to get to the Bran Castel, once you get there, you need to go in the basement, there you need to draw a pentagram on the wall near the crypt door\n"
+		"Be shure to use embers mixt with your blood for the drawing, when you are done knee in front of the crypt and say this words\n"
+		"Expergiscere magnum dominum, frange signaculum, pasce sanguine inimici et renascendi.\n"
+		"Magnus invasor, magni Alucardi pater, vivit!!!\n"
+		"Choose your path: Press 1 to go find Vlad <<<<<----->>>>> Press 2 to continue alone\n";
+	int answer;
+	bool goOn;
+	std::cin >> answer;
+	switch (answer)
+	{
+	case 1:
+		goOn = false;
+		system("cls");
+		break;
+	case 2:
+		goOn = false;
+		system("cls");
+		std::cout << "After walking alone in the Carpathian Mountains you eventually found Natas, extremly fussy because ou killed his loyal pet Anatos\n"
+			"And a fight begun!!!\n";
+		Sleep(1000);
+			FightScene(player, GenerateEnemy(player)) ;
+		break;
+	default:
+		std::cout << "Wrong key, try again\n";
+		goOn = true;
+		std::cin >> answer;
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			std::cout << "Press 1 or 2 !..." << std::endl;
+			std::cin >> answer;
+		}
+		break;
+	}
+
+}
+
+void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
+{
+	int sideCharacterHealth, mainCharacterHealth, sideCharacterAttack, mainCharacterAttack, enemyHealth, enemyAttack;
+
+	sideCharacterAttack = Vlad->Attack();
+	sideCharacterHealth = Vlad ->getHealth();
+	mainCharacterAttack = player->Attack();
+	mainCharacterHealth = player->getHealth();
+	enemyAttack = enemy->Attack();
+	enemyHealth = enemy->getHealth();
+	do
+	{
+		if (sideCharacterHealth <= 0)
+		{
+			if (mainCharacterHealth <= 0)
+				break;
+			else
+			{
+				do
+				{
+					enemyHealth -= mainCharacterAttack;
+					std::cout << "Enemy's health after p2 have attacked: " << enemyHealth << std::endl;
+					if (enemyHealth <= 0)
+						break;
+					mainCharacterHealth -= enemyAttack;
+					std::cout << "player2Health after Enemy have attacked P2: " << mainCharacterHealth << std::endl;
+					if (mainCharacterHealth <= 0)
+						break;
+				} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
+			}
+		}
+		else
+		{
+			do {
+				enemyHealth -= sideCharacterAttack;
+				std::cout << "Enemy's health after p1 attacked: " << enemyHealth << std::endl;
+
+				if (enemyHealth <= 0)
+					break;
+
+				enemyHealth -= mainCharacterAttack;
+				std::cout << "Enemy's health after p2 have attacked: " << enemyHealth << std::endl;
+
+				if (enemyHealth <= 0)
+					break;
+				sideCharacterHealth -= enemyAttack;
+				std::cout << "player1Health after Enemy have attacked P1: " << sideCharacterHealth << std::endl;
+				if (sideCharacterHealth <= 0)
+					break;
+			} while (enemyHealth > 0 && sideCharacterHealth > 0);
+		}
+
+
+
+	} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
 }
 
 

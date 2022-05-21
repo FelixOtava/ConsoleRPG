@@ -7,6 +7,5 @@ public:
     Anatos();
     inline virtual ~Anatos() {};
     void PrintEnemyStats();
-    inline void EnemyAttack() {};
 };
 
