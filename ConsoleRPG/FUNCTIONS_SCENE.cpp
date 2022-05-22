@@ -18,7 +18,6 @@ void FightScene(Player* player, Enemy* enemy)
 			break;
 		playerHealth -= enemyAttack;
 		std::cout << "Your health after Enemy have attacked: " << playerHealth << std::endl;
-		Sleep(200);
 		if (playerHealth <= 0)
 			break;
 	} while (enemyHealth >= 0 || playerHealth >= 0);
@@ -1221,7 +1220,7 @@ void SceneFinalFight()
 		std::cout << "       .'cdl;.       cNNOXMWNWMMMMWx.         :0NNNNNNNNNNNNNNNNNNNNNNNNK;                                                                            \n"; Sleep(200);
 		std::cout << "          .          cNX0XMMMMMMMMMWO,         ,kNNNNNNNNNNNNNNNNNNNNNNN0;                                                                            \n"; Sleep(200);
 		std::cout << "                     lNX0NMMMMMMMMMMWKo'        .xXNNNNNNNNNNNNNNNNNNNNNK;                                                                            \n"; Sleep(200);
-		std::cout << "                    lNNKNMMMMMMMMMMMMWO;        .oXNNNNNNNNNNNNNNNNNNNNK:                                                                            \n"; Sleep(200);
+		std::cout << "                    lNNKNMMMMMMMMMMMMWO;        .oXNNNNNNNNNNNNNNNNNNNNK:                                                                             \n"; Sleep(200);
 		std::cout << "                     lNNKNMMMMMMMMMMMMMMXo.       .cKNNNNNNNNNNNNNNNNNNNXl                                                                            \n"; Sleep(200);
 		std::cout << "                     lNWNWMMMMMMMMMMMMMMMW0c.       ;ONNNNNNNNNNNNNNNNNNNo                                                                            \n"; Sleep(200);
 		std::cout << "                     lWMMMMMMMMMMMMMMMWMMMMNOc.      'xXNNNNNNNNNNNNNNNNNd.                                                                           \n"; Sleep(200);
@@ -1245,7 +1244,7 @@ void SceneFinalFight()
 		std::cout << "                 ;KMWNXXXXNWMWNKx;.           ..''...'''''''''''''''''''''''''''''''''..             ,oO0OO0KXXKOc.                                   \n"; Sleep(200);
 		std::cout << "                 .lXWWWWWWWNKkl'                ....'''''''''''''''''''''''''''''''''..                .,oOKKKKK0o.                                   \n"; Sleep(200);
 		std::cout << "                   'cdddoc;'.                     .''''''''''''''''''''''''''''''''''.                    .,oOXXKOl.                                  \n"; Sleep(200);
-		std::cout << "                                                  .'''''''''''''''''''''''''''''''''..                       .lKWMK; 				                    \n"; 
+		std::cout << "                                                  .'''''''''''''''''''''''''''''''''..                       .lKWMK; 				                    \n"; Sleep(200);
 		std::cout<<"- Who dares to wake me up?\n"
 "Our hero, started to introduce himself, and after telling his story, and all the tough time he got through, Vlad exclamed\n"
 "- Oh, I know exactly who you are, so the myths where true! I will help you end the prophety\n"
@@ -1258,6 +1257,9 @@ void SceneFinalFight()
 "I was waiting for you, hmm, I see that you bring a friend with you, my son\n"
 "-(V) Enough talking, it's time for me to revenge my people, it's time for the prophecy to be completed\n"
 "Your time has come, my dear Rat firend\n"
+"Vlad, made an ancient spell, using his companion blood, combined with his\n"
+"After trowingh the cursed spell on Natas, his health drop to 50%, but same on the other side\n"
+"The spell is named Change of Hearth, where you combine cursed blood, with angelic blood, creating a verry powerful attack, but this cost half of his user's health, and also half of the health of angelic blood's possesor\n"
 "\n Press anithing to continue... \n";
 	std::string random2;
 	std::cin.ignore();
@@ -1267,13 +1269,13 @@ void SceneFinalFight()
 void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 {
 	int sideCharacterHealth, mainCharacterHealth, sideCharacterAttack, mainCharacterAttack, enemyHealth, enemyAttack;
-	// all the values are divided by 2 for shorting the time of the fight
-	sideCharacterAttack = Vlad->Attack()/2;
+	sideCharacterAttack = Vlad->Attack();
 	sideCharacterHealth = Vlad ->getHealth()/2;
-	mainCharacterAttack = player->Attack()/2;
+	mainCharacterAttack = player->Attack();
 	mainCharacterHealth = player->getHealth()/2;
-	enemyAttack = enemy->Attack()/2;
+	enemyAttack = enemy->Attack();
 	enemyHealth = enemy->getHealth()/2;
+	int i = 0;
 	do
 	{
 		if (sideCharacterHealth <= 0)
@@ -1285,11 +1287,12 @@ void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 				do
 				{
 					enemyHealth -= mainCharacterAttack;
-					std::cout << "Enemy's health after DemiGod attacked: " << enemyHealth << std::endl; Sleep(20);
+					std::cout << "Enemy's health after DemiGod's attack: " << enemyHealth << std::endl; Sleep(50);
 					if (enemyHealth <= 0)
 						break;
 					mainCharacterHealth -= enemyAttack;
-					std::cout << "DemiGod Health after Enemy attacked: " << mainCharacterHealth << std::endl; Sleep(20);
+					std::cout << "DemiGod Health after Natas's attack: " << mainCharacterHealth << std::endl; 
+					i++;
 					if (mainCharacterHealth <= 0)
 						break;
 				} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
@@ -1299,18 +1302,19 @@ void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 		{
 			do {
 				enemyHealth -= sideCharacterAttack;
-				std::cout << "Enemy's health after Vlad the Impaler attacked: " << enemyHealth << std::endl; Sleep(20);
+				std::cout << "Natas's health after Vlad the Impaler's attack: " << enemyHealth << std::endl;
 
 				if (enemyHealth <= 0)
 					break;
-
+				
 				enemyHealth -= mainCharacterAttack;
-				std::cout << "Enemy's health after DemiGod attacked: " << enemyHealth << std::endl; Sleep(20);
+				std::cout << "Natas's health after DemiGod's attack: " << enemyHealth << std::endl;
 
 				if (enemyHealth <= 0)
 					break;
 				sideCharacterHealth -= enemyAttack;
-				std::cout << "Vlad the Impaler's Health after Enemy attacked: " << sideCharacterHealth << std::endl; Sleep(20);
+				std::cout << "Vlad the Impaler's Health after Natas's attack: " << sideCharacterHealth << std::endl; Sleep(50);
+				i++;
 				if (sideCharacterHealth <= 0)
 					break;
 			} while (enemyHealth > 0 && sideCharacterHealth > 0);
@@ -1329,6 +1333,61 @@ void EndGame()
 	std::cin >> random;
 	
 	system("cls");
+	std::cout <<
+		"                                                                                ...                                                                                                                     \n"
+		"                                                                           .',:cccc;'....                                                                                                               \n"
+		"                                                                       .';,,'''',;clloolc,.                                                                                                             \n"
+		"                                                                   .';lxo'  ..    .;k0Okxl,.                                                                                                            \n"
+		"                                                                 .,cdk0O,  ..   ..  ,OKkc.  ...                                                                                                         \n"
+		"                                                                .,coxkOx. ...,;'... .;;. .;loc,.                                                                                                     .  \n"
+		"                        ...       ...       ..                  .;cdkOKKc .;ok0d;'.  .'cx0KOkoc'                                                                                                     .. \n"
+		"                       ..        ...    .....                   .;lxO0KK0d:;cll;. .,cx0KK00Oxoc,                                                                                                     .. \n"
+		"                               .....  .....    .:l;.             .:dxkOOkxl;.  .,cdxkkOOOOkxdo:.                                                                                                      . \n"
+		"                              ..'.........   .ckOOOxl,.           .';;;;'.    ..'..',,,;;;;;,'.                                                                                        .              ..\n"
+		"                              .''...........:xOOOOkxkOdc,.                                                                                                                             ..    .        ..\n"
+		"                             .'''''.......,oOOOOOOOxlcclol;.                                                                                                                           ..    .         .\n"
+		"                             ',,''......':xOOOOOOOOOOo'  ...                                                                            .                                             .'    ..         .\n"
+		"                            .',,'.''..'':kOOOOOOOOOOOOkl;'..                                                                         .;:.      ..                                     ''    ..         .\n"
+		"                          ...,,'.';c,'.;x0OOOOxdoolllllccc;,'.                                                        .':;.      .,cdxl.      ..       ..                            .,'    ..         .\n"
+		"                        .':;',''.'ll'.'oOOOOOkxdolc:;'..     .      ...',,,'...                                ..,,;:ldkOl.   .;lxO0x,      ,;..      ..                             .;.   .,.         .\n"
+		"                 ...  .':xk:,,'':cc:'.:kOOOOOOOOOOOOOkdllllc:;,,;;::;::;;,..                               .':ldxdooxO0OOc..,lxOO0kc.    .cdOo.       ..                            .,:. . .;. . ....  .\n"
+		"              ..',...'cokKx,'''lkdc,..lOOOOOOOOOOOOOOOkkOOOkkkkkkkxxdddddc'.                           .;cdxdl;'.   .,dOOocxOOOOOo'    .:k0K0c.      .'.                  ..        .:;....';...........\n"
+		"          ..'',;,'';ox0xxKd''':k0xc,.'d0OOOOOOOOOOOOOOOOOO00000000000ko:'                        .';clxkxl;.          .lOxk0OOOd;    .cx000Kx,      .''.              ......     ...,:'....;;...........\n"
+		"      ...'''',;,.;x0KKKkdOd,',d00xc;',x0OOOOOOOOOOOOOOO0O00000000Odc,.                       .,:okOkxo:.               'xxx0Ox;.   'lk000000l.     ..''.        .........'..........:;.....:,...........\n"
+		"  ..',,'...','.. 'OKKKKOlxd,.:O00xccc:d0000OOOOOOOOO0000000000kl:.                     ..,:lxk00ko;..                  .dkxd;.  .;oO000000Kx,     .;,,'.       .........',.........;c,....,:............\n"
+		"',,'........     .oKKKKKocd;.l000kookxxO0000OO0O0000000000kdc,.                   .';coxOO000Oo;.                      .cc.. .;lkO0O000000O:.    .xx;'.        ........';.........,c;'....:;............\n"
+		";'.   ...         'kXKKKO:;,.,ok0kxkO0O00kooxk000000000kl;.                 ..,:ldkOOO0OOOOd:.                           ..;lkOOOOO000000Ol.    .xKO:'.          .... .;'........'c;'....,:'............\n"
+		";'.                ;OKKKKd,....,:cx00000x'  ..,:lxO0ko,.              ..,:ldxkOOOOOOOOOOxl,.                            'cx0OOOOOOO00OO0Ol.    'xKK0o.              ..;,. ......'::......:;.............\n"
+		":'...               :0KKK0o'. ....o00000:  ..    .',.             .':ldkOOOOOOOOOOOOOkd:.          ......              .:dk0O0OOOOOOOOOOl.    ,kKKKKd.              .;;.      .'::..'. .;:'............'\n"
+		";...... .            ;OKKK0l.. ...l00000: ...                ..;coxOOOOOOOOOOOOkOkxo:'       ..';l:cxloo.              .cdO0OOOOOOOOOOOc.   .:k00KKKo.             .;;.      .'::. .'..':,..........'..'\n"
+		"'..........           'xKKKOc.   .:O0000c..;l.           ..;lxOOOOOOOOOOOOOOOkkkkkxoc;.    .,ldoddlodxkxc. ..   ..     .cx0OOOOOOOOOOk:    .oO000KKKl.            .;;.      .,:;. .'...:;...........,..'\n"
+		".............          .o0KKOc.   ,OK00Kd..''        .':clxO0OOOOOOOOOOOkkkkkkkkkkOOOOkdc'..:xkdxddxxO0Oo.....,cc.     'lk0OOOOOOOOOd'   .;xO00000K0c            .;;.      .,:;. .''..;;...........,;''.\n"
+		"'..............         .:kKKOl.. 'xK00Kk,          .:k00OO00OOOOOOOOOOkkkkkkkkkOOOOOOOOOkd:',dkkkk00000x:'.ckxdo,    .,oO0OOOOOOOkl.   'oOO000000Kx.           .;;.      .;:,.  .'..,;.........'..;:;'.\n"
+		"'....'...........        .,o0K0o'..d00Oo'       .:o:. .:oxkOOOOOOOOOOOOOOkkkkkkOOOOOOOOOOOOOkc;cxO000000O:.l0Odod:.    ,x0OOOOOOOx;   'lkOOO0OO000O:           .;,.     .';;.   .'..,;..........,.'::,..\n"
+		"'....,'...........       ,o;:kK0l'.l0d,      .:l;l00d,  ..;lxkOOOOOOOOOOOOOkkkkkOOOOOOOOOOOO00kl:ck0000Oc,d0OxxkO:    .lOOOOOOOkl.  'cxOOOOOOO0000o.          .,.      .,;'..  .'..';.  . .....',.,:'...\n"
+		",...,,'...........      .lKx'.lO0l.,;.     .,d00dck00Oc.   ..;codxkkkkkkOOkkkxxdoollllllllllllool,'coxkock0000Oxl.  ..ckOOOOOko,..,lkkkOOOOOOOOO0d'         .''.     .','.  ......',.     .....,..;'....\n"
+		",..,,,,............     .xX0l'.;dx;      .ckkk00Oxk00OOc       .',;clodxkkxdollc::;;,,,,''............';ldoolc;,'',cokOOOOOkl,.,cdkOkkOOOOOOOOOOx,         .'.      .,,.     .'..'.        ...,;.,,.....\n"
+		",'',,,,'...........     ;0X0kd,..'.     ;x0000000000O00x'    .      .......''..'''''''',,,,,,,,,,,,,,,'.......,ldkO0OOOOkdl::lxkkkkkkkkOOOOOOOOx,        ...      .':c.      .'...           .;,',......\n"
+		",,,,,,,'...........    .oKK0kOx'      .oO00000000OOOOOOO:.. .:c:,..',,:cc:;. ....'.....    ......'';;;::;;,,,..,lx00OkkxdodxOOkkkkkkkkkkOOOOOOd,        ..      .':dd,      ','.            .;;''. .....\n"
+		",,,,;,,,...........    .xXKKkkKl.    'x000000000OOOOOOOOd'.'':oOXd:loxXMMMWOcclo0XK00Okc,,,,;c::;,'.......';:;;,,;codxkOOOOOOOOOOOkkkkOOOOOkxc.       ..      ..;oOx.     .''.              ':;..  .....\n"
+		",,;;;,;,........... ...,OXKKkxk,     ;O000000OOOOOOOOOOOOc.;l:lkNd.,ldKMMMM0:;lxXMMMW0d:,lod0WMMWNKl'',,,',,....',,,:coxkOOOOOOOOOOOOOOOOOko,.     ...      .':oO0o.     ...    .          .:;.         \n"
+		",,;;;;,,'.......... .;'cKKKKkl;   .:,.o00000OOOOOOOOOOOOOkc.:dlod';o::xXWMNl,c:c0WW0ddKKl;ldKMMMW0l' 'lodONX0koc'. ..''';ldkOOOOOOOOOOOOOd:.     ..      ..;ok0Oo,      ..       .        .;,.          \n"
+		",,;;;;,,'..'....... 'o:oKKKKx'   .d0o.,k0O00OOOOOOOOOOO00OOl,cdl,'oKKdcl0WO:xN0loOklkWMMNd;lOWW0xdko;.'oxXMMMMMWd,:l;......;oxkOOOOOOOkd:..    ..     ... .:ol:.                 ..      .,.            \n"
+		";;;;;,,,'..'....... ,kdxKKKKd.  'x00x..lO00000OO0OOOOOkkO00Oxclo,;oxXWXxodlckXMWkclxXMMMMWd';ldxKWW0d;.:OWMMWNKk,,0MW0l,.. ..,lxxkOOxo;..    .       'l:.                         ..    .'.             \n"
+		";,,,,,,,'.','...... ,OOkKKKKl. 'x000O; .d000000O0OOO00kook000Odoc;cokXWMWx;cd0WWOclxKMMMMMNl ;KWMMNOol'.lKXXXXXXo.dWMMKdl;''. .,cll:,...        ..  'oc.                          ..  ...               \n"
+		"''''''''........... ;0K0KKK0: .d00000l. ,x0000000000000Ol;ok000kxo,,:oOKk:.':xKO;.':dXWMMNOc.lXMMNOdoo:.cKNNMMMXd';KMXkoc,lK0c. .......    ....::. ;o;.                            ....                 \n"
+		"....................:0KKKKOl..:x00000d' .:k0000000000000Ol,;lxO000x;',:llccccoxoc::ccd00kl;'..ckkoc::;':0MMMMWNkdc.cOddxc..xkl,........':coxdoxo..ld,                              ..                   \n"
+		".................',,l0KKKx:'.'dx00000k;  .lO0000000000000Oo'',:dO00kocclooooooddxkO0000OOkkxddoolc:;,'.'lKWMN0xooo,'d0X0o'.......;:;cdkOOOOOOOo,:xl.                                ..                  \n"
+		"............,cxd:'..cKK0d;''.:kxOK000Oc.  .oO00000000000000o,.'';ldkOkkkxddddooodxkkkOO000000000000OOkxdookkdlllc;,xKKOo:,... .:oxxkO0OOO000kc:dx:.  .                              ..                  \n"
+		"........':dkOxl, ..lK0l, ''''o0xk00000d'   'o000000000000000d, ..''',;;;,,,,,,,;;;::cllodxxkOO00000000000kdocc:;,...;k0kl:'... : oxxk0OO0OO00Odcoko'   ..                              ..               \n"
+		".....'cxOko;.      .x0l''''.;k0xx00000k;.   ,d000000000000000o,'........................'',,;:clodxkO000Okdolc;,'...',,...,cdkkO0OOOO0O0Okookkc.  ...                                .                  \n"
+		"...:dkxc'.         ,ko'.....l00kdO0000Ol.   .,d00000000000000Oc''.................................',;;:lodk000Oxoc:;,,;;cdOOO0OklcdkOOOOxxkOo,..''..                                 .                  \n"
+		"'lkkc'.            cd,.....,x00Odk00000o'.   .,d000000000000Oxl:;;,'''''''',,,''''''''....................';:coxO000OO00000Oxl:,;oO0OOOOOOx:. .ckc..                                 .                  \n"
+		"KNx.              .l:......lO000xx00000x,.    .,o00000000000OkO0Okdoc;,,,,'',,'''''''''''''''''................',:lodkkkdoc;..;oOOOO0OOOkl'. .o00o.                                  .                  \n"
+		"Mk.               ':'.....,k0000kdO0000k:..    .,oO000000000000000KK0kdc;,,,,,,,''','''''''''''''''''''''............,,'...'cxO0OOOOOOOo,.  .cO0Kd.                                  .                  \n"
+		"Wo                ''......l00000kdx0000O:..     .'lO0000000000000KK0KKK0kl;,,,,,,',,'''''''''''''''''''''''''.....   ....'oO000000OOOx:.    ;k000xol.                                .                  \n"
+		"Wd.               .......'x00000kld0000Oc..      .'lO0000000000000000KKKKKx:,,','''''''''''''''''''''''''''''..'....   ..cO0O0000OOOx,.    .o00Kkok0o.                               .                  \n";
+
 	std::cout << "After defeating Natas, the DemiGod started screaming in pain, because his helper just died\n"
 		"NO,NO,NO,NO, it can't be real!\n"
 		"But with his last breath Natas started to explain all of his destiny\n"
