@@ -934,7 +934,7 @@ void SceneForestAfterBattle(Player* player)
 				case 3:
 					std::cout << "This is the place from where you just came, the Orch is dead, the gear is yours\n"
 						"Maybe you should try something more unknown, and challenging\n"
-						"Like road nr.2 ???? for example (Im just saing)\n";
+						"Like road nr.2 ???? for example (Im just saing)  (> '.')>\n";
 					std::cin >> answer;
 					if (std::cin.fail())
 					{
@@ -1142,6 +1142,128 @@ void SceneNatas(Player* player)
 
 }
 
+void SceneFinalFight()
+{
+	std::cout << "Once arrived to Bran Castel, the DemiGod, get straight to the crypt and initialise the ancient ritual\n"
+		"After ending the ritual, a thunder like sound was heard\n"
+		"And the big dor in front of him started to creak\n"
+		"Press anithing to continue... "
+		"For a better experience make shure your console is in full screen mode";
+	std::string random;
+	std::cin.ignore();
+	std::cin >> random;
+	std::cout << "The cruel Impaler, took a step out of his tomb, asking:\n";
+	std::cout << "                                                                     ..........       ......'''''''''''....                                               \n";Sleep(200);
+		std::cout << "                                                                           .........         .............                                            \n"; Sleep(200);
+		std::cout << "                                 ..,:cloooool:;'.                                ........                                                             \n"; Sleep(200);
+		std::cout << "                             .':ok0KXXXXXXXXXXXKk;                                    .........                                                       \n"; Sleep(200);
+		std::cout << "                           .cx0XXXXXXXXXXXXXXXXXk' .lo,.                                   ..........                                                 \n"; Sleep(200);
+		std::cout << "                         'oOXXXXXXXXXXXXXXXXXXX0: .oKXKx;.                                       ...........                                          \n"; Sleep(200);
+		std::cout << "                       .l0KKKKXKKKXXXXXXXXXXXXKo..oKXXXXKd'                                       .co;. .................                             \n"; Sleep(200);
+		std::cout << "                      'xKKKKKKKKKKKKKKKKKKKKKKx'.l0KXXKXXKO:                                     .lKXx.        ..'......'''............               \n"; Sleep(200);
+		std::cout << "                     'x0KKKKKKKKKKKKKKKKKKKKKO;.:0KKKKKKKKKd.                                    :0XX0:        .ckxdollc::;,,''.......................\n"; Sleep(200);
+		std::cout << "                    .o000000000000000KKKKKKKOc.;OKKKKKKKKKk,                                    .xXXXKd.        lKXXXXXXKKK0OOkxddoollccc:,...........\n"; Sleep(200);
+		std::cout << "                    ,k000000000000000000000Ol.,x000000KKKk;                                     ;OKKKKk,        cKXXXXXXXXXXXXXXXXXXXXXXXKd.          \n"; Sleep(200);
+		std::cout << "                   .cOOOOOOOOOOOOOOO000000kl,:x000000000O:                   '.                 :0KKKK0c        :0XKKKKKKKKKKKKKKKKKKKKKKXk.          \n"; Sleep(200);
+		std::cout << "                   .lkkkOOOOOOOOOOOOOOOOOxccoxkOOOOOOO0Oc.                .;l:                  ;O00000o.       ;OKKKKKKKKKKKKKKKKKKKKKKKKx.          \n"; Sleep(200);
+		std::cout << "                   .lkkkkkkkkkkkkkkkkkkkoclxkkOOOOOOOOOl.               .:OKd. ''               'xOOOOOx,       ,k000000000000000000000000l.          \n"; Sleep(200);
+		std::cout << "                    :xxxxxxxxxxxxxkkkkdccdkkkkkkkkkkkko.               ,xKx:. ,oc.              .ckkkkkx;       ,k0000000OOOOOOOOOOOOOOO0x,           \n"; Sleep(200);
+		std::cout << "                    'oddddddxxxxxxxxxo:cdxxxxxxxxxxkkd,              .lKXx'  ,dOd.               'oxxxxxc.      'xOOOOOOOOOOOOOOOOOOOOOOk:.           \n"; Sleep(200);
+		std::cout << "        .. .,'.     .:ooddddddddddddl:lddddddxxxxxxxx:.             ;ONXx. .;dOKd.                'lddddc. .    'dkkkkkkkkkkkkkkkkkkkkkxc.            \n"; Sleep(200);
+		std::cout << "        ';.,0Xko:.   .:looooooooooolclooooddddddddddl.            .oKNKo..,ld0XNd.                 .clooc...    ,dxxxxxxxxxxxxxxxxxxxxd:.             \n"; Sleep(200);
+		std::cout << "        ;c.:KNNNN0c.  .;lllllllllllllloooooooooooool,            ;ONN0c. ,xOKNNNd.                  .,:c:...    ,odooodooooooooooooooc'               \n"; Sleep(200);
+		std::cout << "        cl.lXNNNNNXd'   ':cccccccccccllllllllllllll;.          .lKNXOc..cONNNNNXd.                    .',....   ,llllllllllllllllll:'.                \n"; Sleep(200);
+		std::cout << "        :c.oNNNNNNNXo.   .';:::::::::ccccccccccccc:.          .oXNXkl,;kXNNNNNNXd.             ..         ...  .,cccccccccccccc:;,.                   \n"; Sleep(200);
+		std::cout << "        .,.dNNNNNNNNO'     ..';;;;;;;:::::::::::::,          .xXNKOd:l0NNNNNNNNXo.               ..'.          .,;;;;;;;;;;,,'..                      \n"; Sleep(200);
+		std::cout << "          .xNNNNNNNN0o,.      ...',,,;;;;;;;;;,,'..         'kNNXKxldXNNNNNNNNNXo.              'cxOo,.          .........                            \n"; Sleep(200);
+		std::cout << "          .kNNNNNNNNNNKd'           ..........             'kNNNXOdOXNNNNNNNNNNKl.               'xK0kxxo,..                                          \n"; Sleep(200);
+		std::cout << "          .kNNNNNNNNNNNXx,.                               'xNNNNOx0NNNNNNNNNNNNK:               .dXK000K0kOO;                                         \n"; Sleep(200);
+		std::cout << "          .dNNNNNNNNNNNNXOc.                   .cc.      'dXNNNK0XNNNNNNNNNNNNNKl               'O0kkOO00KNK:'odl;..              .;:'                \n"; Sleep(200);
+		std::cout << "           :KNNNNNNNNNNNNNKl.              ..;dKNO'     ,o0NNNNXNNNNNNNNNNNNNNNK:               .xNNNNNNNNN0;:KNNNKOxl;..        ,xd'                 \n"; Sleep(200);
+		std::cout << "           .xNNNNNNNNNNNNNNXx,   .,:cloddxxO0XNNNO'    ;k0XNNNNNNNNNNNNNNNNNNNN0:               .dNNNNNNNNNx'lXNNNNNNNNKOdc;....;kd.                  \n"; Sleep(200);
+		std::cout << "            ;0NNNNNNNNNNNNNNXd:lk0XNNNNNNNNNNNNNN0;   'kNNNNNNNNNNNNNNNNNNNNNNNO'                :KNNNNNNNKdckXNNNNNNNNNNNNXK0OkOx.                   \n"; Sleep(200);
+		std::cout << "            .oXNNNNNNNNNNNNNXXNNNNNNNNNNNNNNNNNNNK:  .oXNNNNNNNNNNNNNNNNNNNNNNNk'                ,0NNNNNNNOk0KNNNNNNNNNNNNNNNNNN0;                    \n"; Sleep(200);
+		std::cout << "             'kNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNXc  ,0NNNNNNNNNNNNNNNNNNNNNNNNk'                .xNNNNNNKOKNNNNNNNNNNNNNNNNNNNXo.                    \n"; Sleep(200);
+		std::cout << "              :KNNNNNNNNNNNNNXXXXXK000O0KKKXNNNNNXl  lKXXNNNNNNNNNNNNNNNNNNNNNXd.                 'xXNXXNXXNNNNNNNNNNNNNNNNNNNNk'                     \n"; Sleep(200);
+		std::cout << "              .dNNNNNXK0Okdl:,''',,',:clxkxk0XNNNXl .dXOKNNNNNNNNNNNNNNNNNNNNNNx.       .,.        .,;,,;:cloxOKXNNNNNNNNNNNNNO,                      \n"; Sleep(200);
+		std::cout << "               ,0NNNN0:..     .':oxk0KXNNNNNNNNNNKo..xXdxXNNNNNNNNNNNNNNNNNNNNNx.       co'                   ..,cd0XNNNNNNNXx'                       \n"; Sleep(200);
+		std::cout << "                lXNNNXc     .d0XNNNNNNNNNNNNNNNNN0xl;dNOddkKNNNNNNNNNNNNNNNNNNNk.      'OXk;                       .,cONNNNKl.                        \n"; Sleep(200);
+		std::cout << "                .kNNNNO'    'ONNNNNNNNNNNNNNNNNNXOK0coNNXx;':d0NNNNNNNNNNNNNNNNK;     .dXNN0c.       ;xkkxxdlloc,.    'd0X0:                          \n"; Sleep(200);
+		std::cout << "                 :KNNNXl    .o0NNNNNNNNNNNNNNNNNXXNNxoKNNN0:  .cOXNNNNNNNNNNNNNXc     ;0NNKx;        ,0NNNNNNNNNKOdc,. .'ll.                          \n"; Sleep(200);
+		std::cout << "                 .dXNNN0;   'xxkKNNNNNNNNNNNNNNNNNNNXkkXNNNKc   .l0NNNNNNNNNNNNXl    .oKkl'          .xNNNNNNNNNNNNNXx'                               \n"; Sleep(200);
+		std::cout << "                  'ONNNNO:  .o0o:ldOKNNNNNNNNNNNNNNNNX0KNNNNKo.   'xXNNNNNNNNNNNx.   .,'.             ;KNNNNNNNNNNNNNXc                               \n"; Sleep(200);
+		std::cout << "                   :KNNNNKo. .d0x, ..ck0XNNNNNNNNNNNNNNNNNNNNXk,   .c0NNNNNNNNNNk.                    .dNNNNNNNNNNNNNXl                               \n"; Sleep(200);
+		std::cout << "                   .oXNNNNXk, .dXO;  'kOkOKNNNNNNNNNNNNNNNNNNNNKo.   ,kXNNNNNNNKc                      ,0NNNNNNNNNNNNK:                               \n"; Sleep(200);
+		std::cout << "                    .xNNNNNN0: .xXO' .OMN0k0XNNNNNNNNNNNNNNNNNNNNO:.  .ck0000ko,                        lXNNNNNNNNNNXo.                               \n"; Sleep(200);
+		std::cout << "                     'ONNNNNNKc.,ONx..dWMMNXK00XNNNNNNNNNNNNNNNNNNKd'    ....                           'kNNNNNNNNNXd.                                \n"; Sleep(200);
+		std::cout << "                      :KNNNNNNKc.:KXd.:XMNXWMXkdk0XNNNNNNNNNNNNNNNNN0d;.                                .oNNNNXKOxl,.                                 \n"; Sleep(200);
+		std::cout << "                       lKNNNNNNKc.:0Xx:xWXkKMMX00OOO0XXXKKKKXXK0kxxkO0Oxc'                              .ldoc;:ol...                                  \n"; Sleep(200);
+		std::cout << "                       .oXNNNNNNKl.,kX0x0O:dWMNKNMWK000OxOKXNNX0xccxKKKK0Okkxo;,cddooool;',cc:;;,;,. .;clodd;.lNO;;,                                  \n"; Sleep(200);
+		std::cout << "                        .oXNNNNNNXx;:ONX0o..xNNxkWMMMMMWWWMMMMMMWK0WMMMMMMMMMWK0WMMMMMMMXkONWMWWWWNOxKWMMMMWo'kNl..                                   \n"; Sleep(200);
+		std::cout << "                         .lKNNNNNNN0ddKNNKo.,oo';OMMMMMMWKKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWNWMMMMMMMWWMMMMMMX:,0O.                                     \n"; Sleep(200);
+		std::cout << "                          .cKNNNNNNNXOkKKOdlodxx:lKMMMMMKcc0WMMMW0ONMMMMMMMMMMNXWMMMMMMMMMMMMMMMMWKx0WMMMMMO':k;                                      \n"; Sleep(200);
+		std::cout << "                            :0NNNNNNN0doddxO0Okdl;oXMMMNkxK0KWMNOddOXNNNXXXKKOloKNNNNNXXK00KKXXXKkooxXMMMMX:.;,                                       \n"; Sleep(200);
+		std::cout << "                             ;ONNNKOkxdxk00Oxddddc'oNMMKkXMWX000XWWKkOXKXXXXX0OXMWWWWKxOXXKxkXWWW0kXxxNMMNo.                                          \n"; Sleep(200);
+		std::cout << "                              ,x0OxkOOkOOkxxddlll, .lXM0kNMMMKlxWMMXx0MMMMMMMNXWMMMMMXKNMMW0OWMMWkOWKdOMNo.                                           \n"; Sleep(200);
+		std::cout << "                              'lxkOOOkxxxddddodkK0l..,xddXMMMKloXMMKlxNMMMMMNxlKMMMMNOOWMMKoOMMWkcOMX:cOl.                                            \n"; Sleep(200);
+		std::cout << "                .'::;.     .;okOOOkxxxxxdxkOKXNNNNN0o;...oNMM0ddxXNkodOWMMNXOooxXMWKdlxNWKocOWKo. lKl  .                                              \n"; Sleep(200);
+		std::cout << "             .':dO0Odl' .'cdkOOkxddxddxxO0XNNNNNNNNNNXOo,.:ONKddddlloddOXKkdooddk00xdxxO0xddkkl,. .'.                                                 \n"; Sleep(200);
+		std::cout << "             'oxO0KXKOxdxkOOkkddddxdxk0XNNNNNNNNXXNNNNNNKxcckOxkOkkO00KKXXXXXXXXXNNNNNNNXXXXXK0Oxdddol:.                                              \n"; Sleep(200);
+		std::cout << "              .,lk00KXKKK0Oxdddddl;'cKNNNNNNNNNNXKOk0XNNNNXK0OOOOkkOKNNNNNNNNNNNNNNNNNXKKK0OOOkxxO0Oxc.                                               \n"; Sleep(200);
+		std::cout << "                 ,dxkKXXKOxdddo:.    c0NNNNNNNNNNNKd;:kXNNNNNNXK0kkOKNNNNNNNNNNNNNNNNNNNNNXKKKOkOOxc.                                                 \n"; Sleep(200);
+		std::cout << "               .'cdk0KKKKKkdl;.       ;0NNNNNNNNNNNXk;.,lx0XNNNNNNXKK0OkxdoooolllllllloodxkO00K0d;.                                                   \n"; Sleep(200);
+		std::cout << "             .,lxOOOkxk0KXK0x:..       ,ONNNNNNNNNNNN0c.  .,::::;,'...                     .....                                                      \n"; Sleep(200);
+		std::cout << "          .':oxOkxdoddxk0000kxdl,.      ,ONNNNNNNNNNNNXo.                                                                                             \n"; Sleep(200);
+		std::cout << "        .;lxkkkdoodxolxkkkkxdooodl.      'kNNNNNNNNNNNNXk;                                                                                            \n"; Sleep(200);
+		std::cout << "     .;cdkOkxoodxdl,.;KWklloodxxdl,       .dXNNNNNNNNNNNNKxc,,;:c:;;,,,,;,.                                                                           \n"; Sleep(200);
+		std::cout << "     :ooxxolodxo:.   ;XWOxdlddodxl.        .oKNNNNNNNNNNNNNNXXXNNNXXXXXXXk'                                                                           \n"; Sleep(200);
+		std::cout << "      ;c:codxo;.     :NNOKWOox0NMWk.        .lKNNNNNNNNNNNNNNNNNNNNNNNNNXc                                                                            \n"; Sleep(200);
+		std::cout << "       .'cdl;.       cNNOXMWNWMMMMWx.         :0NNNNNNNNNNNNNNNNNNNNNNNNK;                                                                            \n"; Sleep(200);
+		std::cout << "          .          cNX0XMMMMMMMMMWO,         ,kNNNNNNNNNNNNNNNNNNNNNNN0;                                                                            \n"; Sleep(200);
+		std::cout << "                     lNX0NMMMMMMMMMMWKo'        .xXNNNNNNNNNNNNNNNNNNNNNK;                                                                            \n"; Sleep(200);
+		std::cout << "                    lNNKNMMMMMMMMMMMMWO;        .oXNNNNNNNNNNNNNNNNNNNNK:                                                                            \n"; Sleep(200);
+		std::cout << "                     lNNKNMMMMMMMMMMMMMMXo.       .cKNNNNNNNNNNNNNNNNNNNXl                                                                            \n"; Sleep(200);
+		std::cout << "                     lNWNWMMMMMMMMMMMMMMMW0c.       ;ONNNNNNNNNNNNNNNNNNNo                                                                            \n"; Sleep(200);
+		std::cout << "                     lWMMMMMMMMMMMMMMMWMMMMNOc.      'xXNNNNNNNNNNNNNNNNNd.                                                                           \n"; Sleep(200);
+		std::cout << "                     dWWNWMMMMMMMMMMWkxXMMMMMW0c.     .lKNNNNNNNNNNNNNNNNd.                                                                           \n"; Sleep(200);
+		std::cout << "                    .kMXKWMMMMMMMMMNd.cNMMMMMMMNO:.     'xKNNNNNNNNNNNNNK:                                                                            \n"; Sleep(200);
+		std::cout << "                    '0W0KMMMMMMMMWKc..kMMMMMMMMMMNk;.     ,oOXNNNNNNNNNN0;                                                                            \n"; Sleep(200);
+		std::cout << "                    :XXOXMMMMMMMWO,  ,KMMMMMMMMMMMMNOl'     .,lkKXNNNNX0x;                                                                            \n"; Sleep(200);
+		std::cout << "                   .dNOOWMMMMMMM0;  .dWMMMMMMMMMMMMMMWXx;.      .;:::;'.                     .;lxkd;.                                                 \n"; Sleep(200);
+		std::cout << "                   '0XkKMMMMMMMWd. .oNMMMMMMMMMMMMMMMMMMNOdc'.                          .,cdOXWMMMMW0o'                                               \n"; Sleep(200);
+		std::cout << "                   lXOkWMMMMMMMWo .oNWWMMMMMMMMMMMWWNXXXNWMWXKOl.                 .':lxOXNWMMMMMMMMMMWO,                                              \n"; Sleep(200);
+		std::cout << "                  .OXkKMMMMMMMMNl'oOOKWMMMMMMMW0dllx0XNNX0xlco0Nk.              :kKNWWXKKXKOkXWMMN00NMWKo.                                            \n"; Sleep(200);
+		std::cout << "                  :X0OWMMMMMMMMXOd:,dNMMMMMMW0dllx0KKko:'.    ;KNd.            ,KWOdk0XK0kkd;,dXMWO;;kNW0:                                            \n"; Sleep(200);
+		std::cout << "                 .xXO0MMMMWXXXXXx. ;XMMMMMWXOOKXOo:'.   ....   'x0:           'kWXc  .':dkxxOOxkKWNl  ,xXx.                                           \n"; Sleep(200);
+		std::cout << "                 ,0KkXMMWK0KXXKO: 'OWMMMMN0OKXx,.    ..'''''..  .;,.         ,OWW0;      .cxk0NWNWMXc   ;l.                                           \n"; Sleep(200);
+		std::cout << "                 cNK0NMNOONMMMMM0cxWMMMWKO0NO;     .''''''''........''........cdd'         .d00XWMMMO'   .''.                                         \n"; Sleep(200);
+		std::cout << "                .dW00WMKxXMMMMMW0ONMMMN00XXd.     ..''''''.....''''''''''''''.....          .dXKKNMMWk,  :KN0o'                                       \n"; Sleep(200);
+		std::cout << "                .kNkOMMNOKWMMMWKOXMMNK0XN0:        ..''''....'''''''''''''''''''''..         .cKK0KWMMXo,xWMMMXl.                                     \n"; Sleep(200);
+		std::cout << "                .k0dKMMMNK0KNMNXNMNK0XN0c.    ..........''''''''''''''''''''''''''''...        ,kXK0XWMWKkKWMMMWKl.                                   \n"; Sleep(200);
+		std::cout << "                .x0o0MMMMMWWWMMWNKKK0x;.     ..''''.....'''''''''''''''''''''''''''''''..       .c0NK00XWNK0XWMMMK;                                   \n"; Sleep(200);
+		std::cout << "                 oN00WMMMMMMMWNKKKOc.         .''''....''''''''''''''''''''''''''''''''..         .ckK0OOKNNKKKXN0;                                   \n"; Sleep(200);
+		std::cout << "                 ;KMWNXXXXNWMWNKx;.           ..''...'''''''''''''''''''''''''''''''''..             ,oO0OO0KXXKOc.                                   \n"; Sleep(200);
+		std::cout << "                 .lXWWWWWWWNKkl'                ....'''''''''''''''''''''''''''''''''..                .,oOKKKKK0o.                                   \n"; Sleep(200);
+		std::cout << "                   'cdddoc;'.                     .''''''''''''''''''''''''''''''''''.                    .,oOXXKOl.                                  \n"; Sleep(200);
+		std::cout << "                                                  .'''''''''''''''''''''''''''''''''..                       .lKWMK; 				                    \n"; 
+		std::cout<<"- Who dares to wake me up?\n"
+"Our hero, started to introduce himself, and after telling his story, and all the tough time he got through, Vlad exclamed\n"
+"- Oh, I know exactly who you are, so the myths where true! I will help you end the prophety\n"
+"- I tried so manny times to kill your bastard father, but he is to strong for me, but together, we can get to end his life\n"
+"- (DG) wait? Myy father? What are you trying to say?\n"
+"- There is no time to waste, come, I know where to find Natas\n"
+"After walking through a underground tunnel, they both got to Natas's castel, and Vlad started to shout:\n"
+"-Where are you hidding you F^3k!^6 RAT????\n"
+"-(N) Ah my friends, welcom to Hell!!!\n"
+"I was waiting for you, hmm, I see that you bring a friend with you, my son\n"
+"-(V) Enough talking, it's time for me to revenge my people, it's time for the prophecy to be completed\n"
+"Your time has come, my dear Rat firend\n"
+"\n Press anithing to continue... \n";
+	std::string random2;
+	std::cin.ignore();
+	std::cin >> random2;
+}
+
 void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 {
 	int sideCharacterHealth, mainCharacterHealth, sideCharacterAttack, mainCharacterAttack, enemyHealth, enemyAttack;
@@ -1163,11 +1285,11 @@ void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 				do
 				{
 					enemyHealth -= mainCharacterAttack;
-					std::cout << "Enemy's health after p2 have attacked: " << enemyHealth << std::endl;
+					std::cout << "Enemy's health after p2 have attacked: " << enemyHealth << std::endl; Sleep(20);
 					if (enemyHealth <= 0)
 						break;
 					mainCharacterHealth -= enemyAttack;
-					std::cout << "player2Health after Enemy have attacked P2: " << mainCharacterHealth << std::endl;
+					std::cout << "player2Health after Enemy have attacked P2: " << mainCharacterHealth << std::endl; Sleep(20);
 					if (mainCharacterHealth <= 0)
 						break;
 				} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
@@ -1177,18 +1299,18 @@ void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 		{
 			do {
 				enemyHealth -= sideCharacterAttack;
-				std::cout << "Enemy's health after p1 attacked: " << enemyHealth << std::endl;
+				std::cout << "Enemy's health after p1 attacked: " << enemyHealth << std::endl; Sleep(20);
 
 				if (enemyHealth <= 0)
 					break;
 
 				enemyHealth -= mainCharacterAttack;
-				std::cout << "Enemy's health after p2 have attacked: " << enemyHealth << std::endl;
+				std::cout << "Enemy's health after p2 have attacked: " << enemyHealth << std::endl; Sleep(20);
 
 				if (enemyHealth <= 0)
 					break;
 				sideCharacterHealth -= enemyAttack;
-				std::cout << "player1Health after Enemy have attacked P1: " << sideCharacterHealth << std::endl;
+				std::cout << "player1Health after Enemy have attacked P1: " << sideCharacterHealth << std::endl; Sleep(20);
 				if (sideCharacterHealth <= 0)
 					break;
 			} while (enemyHealth > 0 && sideCharacterHealth > 0);
@@ -1197,6 +1319,48 @@ void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 
 
 	} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
+}
+
+void EndGame()
+{
+	std::cout << "Press anithing to continue... \n";
+	std::string random;
+	std::cin.ignore();
+	std::cin >> random;
+	
+	system("cls");
+	std::cout << "After defeating Natas, the DemiGod started screaming in pain, because his helper just died\n"
+		"NO,NO,NO,NO, it can't be real!\n"
+		"But with his last breath Natas started to explain all of his destiny\n"
+		"-Don't cry son, that was his destiny, and like him I will pass away\n"
+		"-You are myy creation, I created you and gave you to a wise man who can teach you to fight!\n"
+		"-I knew he will prepare you for this day!\n"
+		"-Your destiny was to kill me and become a hero, a good Ruler of the word, you are my descendent and you will take my trhone\n"
+		"-After so many years of fear and darkness, the Earth will be a better place\n"
+		"-Long time ago, i realise my mistakes, i realise that my cold heart was poison by the fake truths of Anatos, my brother\n"
+		"-I tried to correct my mistakes but he and his horde stand between me and my real nature\n"
+		"-So this is how ,in secret , I have created you, I blessed you with my powers, and wisdom\n"
+		"-I was in your shadow all your life, and I sent you a guide, to heal your wounds, and to keep you safe\n"
+		"-Raphaela, once a daemon, took my side after i explain my plan, and now she became an angel\n"
+		"-Using all his daemonic powers in the name of love and pace\n"
+		"-I am sorry son, but i know that you wont make my mistakes again and you will take care of this place, named Earth\n"
+		"And he passes away, letting his human form behind, and a ghost like shape, pale white and transparent, rounded around the DemiGod 3 times after dissapearing\n"
+		"Torn by an interior pain, he kneel down, near his real father corpse and start screaming \"Father, oh my Father\" \n"
+		"\n"
+		"Some time after this, the DemiGod took his father throne, and ruled the world with his father's words in mind, driven by love and peace\n"
+		"                                                                                                                                                                          .-'''-.                                          \n"
+		"                          _______                                                                                                .---.                                   '   _    \\                                        \n"
+		" __  __   ___             \\  ___ `'.         __.....__               /|                                            __.....__     |   |.--.                             /   /` '.   \\              .----.     .----.        \n"
+		"|  |/  `.'   `.            ' |--.\\  \\    .-''         '.             ||    .-.          .-               _.._  .-''         '.   |   ||__|                            .   |     \\  '               \\    \\   /    /         \n"
+		"|   .-.  .-.   '           | |    \\  '  /     .-''\"'-.  `.           ||     \\ \\        / /             .' .._|/     . - ''\"'-.  `. |   |.--.                            |   '      |  '  .|           '   '. /'   /          \n"
+		"|  |  |  |  |  |    __     | |     |  '/     /________\\   \\          ||  __  \\ \\      / /              | '   /     /________\\   \\|   ||  | ____     _____             \    \     / / .' |_     __   |    |'    /    __     \n"
+		"|  |  |  |  |  | .:--.'.   | |     |  ||                  |          ||/'__ '.\\ \\    / /             __| |__ |                  ||   ||  |`.   \\  .'    /              `.   ` ..' /.'     | .:--.'. |    ||    | .:--.'.   \n"
+		"|  |  |  |  |  |/ |   \\ |  | |     ' .'\\    .-------------'          |:/`  '. '\\ \\  / /             |__   __|\\    .-------------'|   ||  |  `.  `'    .'                  '-...-'`'--.  .-'/ |   \\ |'.   `'   .'/ |   \ |  \n"
+		"|  |  |  |  |  |`\" __ | |  | |___.' /'  \\    '-.____...---.          ||     | | \\ `  /                 | |    \\    ' - .____...-- - .|   ||  |    '.    .'                               |  |  `\" __ | | \ / `\" __ | |  \n"
+		"|__|  |__|  |__| .'.''| | /_______.'/    `.             .'           ||\\    / '  \\  /                  | |     `.             .' |   ||__|    .'     `.                              |  |   .'.''| |  \      /   .'.''| |  \n"
+		"                / /   | |_\_______|/       `''-...... -'             |/\\'..' /   / /                   | |       `''-...... -'   '---'      .'  .'`.   `.                            |  '.'/ /   | |_  '----'   / /   | |_ \n"
+		"                \ \._,\ '/                                           '  `'-'`|`-' /                    | |                                .'   /    `.   `.                          |   / \\ \\._,\\ '/           \\ \\._,\\ '/ \n"
+		"                 `--'  `\"                                                     '..' | _ | '----'       '----'                         `'-'   `--'  `\"             `- - '  `\" \n";
 }
 
 

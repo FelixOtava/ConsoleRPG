@@ -46,7 +46,9 @@ int main()
 		SceneMountainsVictory(mainCharacter);
 		SceneNatas(mainCharacter);
 		Enemy* sideCharacter = new Impaler();
+		SceneFinalFight();
 		EndGameFight(mainCharacter, GenerateEnemy(mainCharacter), sideCharacter);
+		EndGame();
 	}
 	else {
 		if (mainCharacter == NULL) {

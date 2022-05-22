@@ -34,4 +34,6 @@ void SceneForestAfterBattle(Player* player);
 void SceneMountains(Player* player,Enemy* enemy);
 void SceneMountainsVictory(Player* player);
 void SceneNatas(Player* player);
+void SceneFinalFight();
 void EndGameFight(Player* player, Enemy* enemy,Enemy* Vlad);
+void EndGame();
