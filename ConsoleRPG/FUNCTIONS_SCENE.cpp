@@ -1267,13 +1267,13 @@ void SceneFinalFight()
 void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 {
 	int sideCharacterHealth, mainCharacterHealth, sideCharacterAttack, mainCharacterAttack, enemyHealth, enemyAttack;
-
-	sideCharacterAttack = Vlad->Attack();
-	sideCharacterHealth = Vlad ->getHealth();
-	mainCharacterAttack = player->Attack();
-	mainCharacterHealth = player->getHealth();
-	enemyAttack = enemy->Attack();
-	enemyHealth = enemy->getHealth();
+	// all the values are divided by 2 for shorting the time of the fight
+	sideCharacterAttack = Vlad->Attack()/2;
+	sideCharacterHealth = Vlad ->getHealth()/2;
+	mainCharacterAttack = player->Attack()/2;
+	mainCharacterHealth = player->getHealth()/2;
+	enemyAttack = enemy->Attack()/2;
+	enemyHealth = enemy->getHealth()/2;
 	do
 	{
 		if (sideCharacterHealth <= 0)
@@ -1285,11 +1285,11 @@ void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 				do
 				{
 					enemyHealth -= mainCharacterAttack;
-					std::cout << "Enemy's health after p2 have attacked: " << enemyHealth << std::endl; Sleep(20);
+					std::cout << "Enemy's health after DemiGod attacked: " << enemyHealth << std::endl; Sleep(20);
 					if (enemyHealth <= 0)
 						break;
 					mainCharacterHealth -= enemyAttack;
-					std::cout << "player2Health after Enemy have attacked P2: " << mainCharacterHealth << std::endl; Sleep(20);
+					std::cout << "DemiGod Health after Enemy attacked: " << mainCharacterHealth << std::endl; Sleep(20);
 					if (mainCharacterHealth <= 0)
 						break;
 				} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
@@ -1299,18 +1299,18 @@ void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
 		{
 			do {
 				enemyHealth -= sideCharacterAttack;
-				std::cout << "Enemy's health after p1 attacked: " << enemyHealth << std::endl; Sleep(20);
+				std::cout << "Enemy's health after Vlad the Impaler attacked: " << enemyHealth << std::endl; Sleep(20);
 
 				if (enemyHealth <= 0)
 					break;
 
 				enemyHealth -= mainCharacterAttack;
-				std::cout << "Enemy's health after p2 have attacked: " << enemyHealth << std::endl; Sleep(20);
+				std::cout << "Enemy's health after DemiGod attacked: " << enemyHealth << std::endl; Sleep(20);
 
 				if (enemyHealth <= 0)
 					break;
 				sideCharacterHealth -= enemyAttack;
-				std::cout << "player1Health after Enemy have attacked P1: " << sideCharacterHealth << std::endl; Sleep(20);
+				std::cout << "Vlad the Impaler's Health after Enemy attacked: " << sideCharacterHealth << std::endl; Sleep(20);
 				if (sideCharacterHealth <= 0)
 					break;
 			} while (enemyHealth > 0 && sideCharacterHealth > 0);
@@ -1347,20 +1347,18 @@ void EndGame()
 		"And he passes away, letting his human form behind, and a ghost like shape, pale white and transparent, rounded around the DemiGod 3 times after dissapearing\n"
 		"Torn by an interior pain, he kneel down, near his real father corpse and start screaming \"Father, oh my Father\" \n"
 		"\n"
-		"Some time after this, the DemiGod took his father throne, and ruled the world with his father's words in mind, driven by love and peace\n"
-		"                                                                                                                                                                          .-'''-.                                          \n"
-		"                          _______                                                                                                .---.                                   '   _    \\                                        \n"
-		" __  __   ___             \\  ___ `'.         __.....__               /|                                            __.....__     |   |.--.                             /   /` '.   \\              .----.     .----.        \n"
-		"|  |/  `.'   `.            ' |--.\\  \\    .-''         '.             ||    .-.          .-               _.._  .-''         '.   |   ||__|                            .   |     \\  '               \\    \\   /    /         \n"
-		"|   .-.  .-.   '           | |    \\  '  /     .-''\"'-.  `.           ||     \\ \\        / /             .' .._|/     . - ''\"'-.  `. |   |.--.                            |   '      |  '  .|           '   '. /'   /          \n"
-		"|  |  |  |  |  |    __     | |     |  '/     /________\\   \\          ||  __  \\ \\      / /              | '   /     /________\\   \\|   ||  | ____     _____             \    \     / / .' |_     __   |    |'    /    __     \n"
-		"|  |  |  |  |  | .:--.'.   | |     |  ||                  |          ||/'__ '.\\ \\    / /             __| |__ |                  ||   ||  |`.   \\  .'    /              `.   ` ..' /.'     | .:--.'. |    ||    | .:--.'.   \n"
-		"|  |  |  |  |  |/ |   \\ |  | |     ' .'\\    .-------------'          |:/`  '. '\\ \\  / /             |__   __|\\    .-------------'|   ||  |  `.  `'    .'                  '-...-'`'--.  .-'/ |   \\ |'.   `'   .'/ |   \ |  \n"
-		"|  |  |  |  |  |`\" __ | |  | |___.' /'  \\    '-.____...---.          ||     | | \\ `  /                 | |    \\    ' - .____...-- - .|   ||  |    '.    .'                               |  |  `\" __ | | \ / `\" __ | |  \n"
-		"|__|  |__|  |__| .'.''| | /_______.'/    `.             .'           ||\\    / '  \\  /                  | |     `.             .' |   ||__|    .'     `.                              |  |   .'.''| |  \      /   .'.''| |  \n"
-		"                / /   | |_\_______|/       `''-...... -'             |/\\'..' /   / /                   | |       `''-...... -'   '---'      .'  .'`.   `.                            |  '.'/ /   | |_  '----'   / /   | |_ \n"
-		"                \ \._,\ '/                                           '  `'-'`|`-' /                    | |                                .'   /    `.   `.                          |   / \\ \\._,\\ '/           \\ \\._,\\ '/ \n"
-		"                 `--'  `\"                                                     '..' | _ | '----'       '----'                         `'-'   `--'  `\"             `- - '  `\" \n"; \
+		"Some time after this, the DemiGod took his father throne, and ruled the world with his father's words in mind, driven by love and peace\n\n"
+		"888b     d888               888               888                    8888888888       888 d8b                .d88888b.  888                               \n"
+		"8888b   d8888               888               888                    888              888 Y8P               d88P\" \"Y88b 888                               \n"
+		"88888b.d88888               888               888                    888              888                   888     888 888                               \n"
+		"888Y88888P888  8888b.   .d88888  .d88b.       88888b.  888  888      8888888  .d88b.  888 888 888  888      888     888 888888  8888b.  888  888  8888b.  \n"
+		"888 Y888P 888     \"88b d88\" 888 d8P  Y8b      888 \"88b 888  888      888     d8P  Y8b 888 888 `Y8bd8P'      888     888 888        \"88b 888  888     \"88b \n"
+		"888  Y8P  888 .d888888 888  888 88888888      888  888 888  888      888     88888888 888 888   X88K        888     888 888    .d888888 Y88  88P .d888888 \n"
+		"888   \"   888 888  888 Y88b 888 Y8b.          888 d88P Y88b 888      888     Y8b.     888 888 .d8\"\"8b.      Y88b. .d88P Y88b.  888  888  Y8bd8P  888  888 \n"
+		"888       888 \"Y888888  \"Y88888  \"Y8888       88888P\"   \"Y88888      888      \"Y8888  888 888 888  888       \"Y88888P\"   \"Y888 \"Y888888   Y88P   \"Y888888 \n"
+		"                                                            888                                                                                           \n"
+		"                                                       Y8b d88P                                                                                           \n"
+		"                                                        \"Y88P\"                                                                                            \n";
 		std::string done;
 		std::cin >> done;
 }
