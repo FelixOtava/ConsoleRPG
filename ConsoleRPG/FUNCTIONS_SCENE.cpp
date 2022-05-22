@@ -13,12 +13,12 @@ void FightScene(Player* player, Enemy* enemy)
 	{
 		enemyHealth -= playerAttack;
 		std::cout << "Enemy's health after you have attacked: " << enemyHealth << std::endl;
-		//Sleep(100);
+		Sleep(200);
 		if (enemyHealth <= 0)
 			break;
 		playerHealth -= enemyAttack;
 		std::cout << "Your health after Enemy have attacked: " << playerHealth << std::endl;
-		//Sleep(100);
+		Sleep(200);
 		if (playerHealth <= 0)
 			break;
 	} while (enemyHealth >= 0 || playerHealth >= 0);
