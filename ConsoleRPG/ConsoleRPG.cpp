@@ -45,10 +45,10 @@ int main()
 		SceneMountains(mainCharacter, GenerateEnemy(mainCharacter));
 		SceneMountainsVictory(mainCharacter);
 		SceneNatas(mainCharacter);
-		Enemy* sideCharacter = new Impaler();
+		std::shared_ptr<Enemy> sideCharacter = std::make_shared<Impaler>();
 		SceneFinalFight();
 		EndGameFight(mainCharacter, GenerateEnemy(mainCharacter), sideCharacter);
-		EndGame();
+		
 	}
 	else {
 		if (mainCharacter == NULL) {

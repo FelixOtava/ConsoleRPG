@@ -10,6 +10,7 @@
 #include<string>
 #include<Windows.h>
 #include<iomanip>
+#include<memory>
 
 
 void FightScene(Player* player,Enemy* enemy);
@@ -35,5 +36,5 @@ void SceneMountains(Player* player,Enemy* enemy);
 void SceneMountainsVictory(Player* player);
 void SceneNatas(Player* player);
 void SceneFinalFight();
-void EndGameFight(Player* player, Enemy* enemy,Enemy* Vlad);
 void EndGame();
+void EndGameFight(Player* player, Enemy* enemy, std::shared_ptr<Enemy> Vlad);

@@ -18,6 +18,7 @@ void FightScene(Player* player, Enemy* enemy)
 			break;
 		playerHealth -= enemyAttack;
 		std::cout << "Your health after Enemy have attacked: " << playerHealth << std::endl;
+		Sleep(200);
 		if (playerHealth <= 0)
 			break;
 	} while (enemyHealth >= 0 || playerHealth >= 0);
@@ -1266,72 +1267,13 @@ void SceneFinalFight()
 	std::cin >> random2;
 }
 
-void EndGameFight(Player* player, Enemy* enemy, Enemy* Vlad)
-{
-	int sideCharacterHealth, mainCharacterHealth, sideCharacterAttack, mainCharacterAttack, enemyHealth, enemyAttack;
-	sideCharacterAttack = Vlad->Attack();
-	sideCharacterHealth = Vlad ->getHealth()/2;
-	mainCharacterAttack = player->Attack();
-	mainCharacterHealth = player->getHealth()/2;
-	enemyAttack = enemy->Attack();
-	enemyHealth = enemy->getHealth()/2;
-	int i = 0;
-	do
-	{
-		if (sideCharacterHealth <= 0)
-		{
-			if (mainCharacterHealth <= 0)
-				break;
-			else
-			{
-				do
-				{
-					enemyHealth -= mainCharacterAttack;
-					std::cout << "Enemy's health after DemiGod's attack: " << enemyHealth << std::endl; Sleep(50);
-					if (enemyHealth <= 0)
-						break;
-					mainCharacterHealth -= enemyAttack;
-					std::cout << "DemiGod Health after Natas's attack: " << mainCharacterHealth << std::endl; 
-					i++;
-					if (mainCharacterHealth <= 0)
-						break;
-				} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
-			}
-		}
-		else
-		{
-			do {
-				enemyHealth -= sideCharacterAttack;
-				std::cout << "Natas's health after Vlad the Impaler's attack: " << enemyHealth << std::endl;
-
-				if (enemyHealth <= 0)
-					break;
-				
-				enemyHealth -= mainCharacterAttack;
-				std::cout << "Natas's health after DemiGod's attack: " << enemyHealth << std::endl;
-
-				if (enemyHealth <= 0)
-					break;
-				sideCharacterHealth -= enemyAttack;
-				std::cout << "Vlad the Impaler's Health after Natas's attack: " << sideCharacterHealth << std::endl; Sleep(50);
-				i++;
-				if (sideCharacterHealth <= 0)
-					break;
-			} while (enemyHealth > 0 && sideCharacterHealth > 0);
-		}
-
-
-
-	} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
-}
-
 void EndGame()
 {
 	std::cout << "Press anithing to continue... \n";
 	std::string random;
 	std::cin.ignore();
 	std::cin >> random;
-	
+
 	system("cls");
 	std::cout <<
 		"                                                                                ...                                                                                                                     \n"
@@ -1418,9 +1360,77 @@ void EndGame()
 		"                                                            888                                                                                           \n"
 		"                                                       Y8b d88P                                                                                           \n"
 		"                                                        \"Y88P\"                                                                                            \n";
-		std::string done;
-		std::cin >> done;
+	std::string done;
+	std::cin >> done;
 }
+
+void EndGameFight(Player* player, Enemy* enemy, std::shared_ptr<Enemy> Vlad)
+{
+	int sideCharacterHealth, mainCharacterHealth, sideCharacterAttack, mainCharacterAttack, enemyHealth, enemyAttack;
+	sideCharacterAttack = Vlad->Attack();
+	sideCharacterHealth = Vlad ->getHealth()/2;
+	mainCharacterAttack = player->Attack();
+	mainCharacterHealth = player->getHealth()/2;
+	enemyAttack = enemy->Attack();
+	enemyHealth = enemy->getHealth()/2;
+	int i = 0;
+	do
+	{
+		if (sideCharacterHealth <= 0)
+		{
+			if (mainCharacterHealth <= 0)
+				break;
+			else
+			{
+				do
+				{
+					enemyHealth -= mainCharacterAttack;
+					std::cout << "Enemy's health after DemiGod's attack: " << enemyHealth << std::endl; Sleep(50);
+					if (enemyHealth <= 0)
+						break;
+					mainCharacterHealth -= enemyAttack;
+					std::cout << "DemiGod Health after Natas's attack: " << mainCharacterHealth << std::endl; 
+					i++;
+					if (mainCharacterHealth <= 0)
+						break;
+				} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
+			}
+		}
+		else
+		{
+			do {
+				enemyHealth -= sideCharacterAttack;
+				std::cout << "Natas's health after Vlad the Impaler's attack: " << enemyHealth << std::endl;
+
+				if (enemyHealth <= 0)
+					break;
+				
+				enemyHealth -= mainCharacterAttack;
+				std::cout << "Natas's health after DemiGod's attack: " << enemyHealth << std::endl;
+
+				if (enemyHealth <= 0)
+					break;
+				sideCharacterHealth -= enemyAttack;
+				std::cout << "Vlad the Impaler's Health after Natas's attack: " << sideCharacterHealth << std::endl; Sleep(50);
+				i++;
+				if (sideCharacterHealth <= 0)
+					break;
+			} while (enemyHealth > 0 && sideCharacterHealth > 0);
+		}
+
+
+
+	} while (enemyHealth >= 0 && mainCharacterHealth >= 0);
+	if (mainCharacterHealth <= 0)
+	{
+		deadArt();
+	}
+	else
+	{
+		EndGame();
+	}
+}
+
 
 
 
