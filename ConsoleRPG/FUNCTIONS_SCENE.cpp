@@ -3,7 +3,7 @@
 void FightScene(Player* player, Enemy* enemy)
 {
 	PlaySound(NULL, 0, 0);
-	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	int playerAttack, enemyAttack, playerHealth, enemyHealth;
 	playerAttack = player->Attack();
 	enemyAttack = enemy->Attack();
@@ -51,7 +51,7 @@ void crossroad()
 void deadArt()
 {
 	PlaySound(NULL, 0, 0);
-	PlaySound(TEXT("EndSong.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	PlaySound(TEXT("EndSong.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	std::cout<<"        _.---,._,'\n"
 		"      /' _.--.<\n"
 		"        /'     `'\n"
@@ -81,7 +81,7 @@ void deadArt()
 
 bool IntroScene1()
 {
-	PlaySound(TEXT("Main_Menu.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	PlaySound(TEXT("Main_Menu.wav"), NULL, SND_FILENAME| SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	std::cout << "				  The adventure of a DemiGod\n";
 	std::cout << "		,_.                                                          ,_.\n";
 	std::cout << "		'\\cXX.==- __                                        __ -==,XXv/`\n";
@@ -277,7 +277,7 @@ void CharacterCreationArt(int wizOrWar)
 int Scene3Travel(std::string name)
 {
 	PlaySound(NULL, 0,0);
-	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP| SND_LOOP);
+	PlaySound(TEXT("Exploring.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_NOSTOP| SND_LOOP);
 	std::cout << "After having a vision of his real father, the OwlGod, " << name << " had a revelation about his ture nature.\n"
 		"All this time he felt different and more powerfull than the others, but he never knew that the reason of his inhuman capacityes was him beying a DemiGod.\n"
 		"He spoke with Sirius about the vision, and about his destiny, and at that moment Sirius froze, his face frowning angrily, but also shocked.\n"
@@ -458,7 +458,7 @@ void SceneTheCity(Player *player, Enemy* enemy)
 void FightSceneThief(Player* player, Enemy* enemy)
 {
 	PlaySound(NULL, 0, 0);
-	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	PlaySound(TEXT("BattleFinal.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	int playerAttack, enemyAttack, playerHealth, enemyHealth;
 	playerAttack = player->Attack();
 	enemyAttack = enemy->Attack();
@@ -529,7 +529,7 @@ bool RestCity(Player* player)
 {
 	system("cls");
 	PlaySound(NULL, 0, 0);
-	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	PlaySound(TEXT("Exploring.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	std::cout << "After getting rid of the thief, and recovered his weapon, the DemiGod saw an interesting pice of gear wich the dead body was wearing\n"
 		"He picked it up, and inspect it\n\n";
 	player->AddItem(player->CreateArmour());
@@ -730,7 +730,7 @@ void SceneTheForestDead(Player* player, Enemy* enemy)
 			break;
 		case 2:
 			PlaySound(NULL, 0, 0);
-			PlaySound(TEXT("BattleFinal.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+			PlaySound(TEXT("BattleFinal.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_NOSTOP | SND_LOOP);
 			system("cls");
 			std::cout << "So the Carpathian Mountain, this place if full of daemons and vampires\n"
 				"Oh, speaking about them, right in front of you appeard Anatos and his lovely horde, now good luck fighting that with so few stats\n";
@@ -842,7 +842,7 @@ bool SceneTheForest(Player* player,Enemy* enemy)
 void SceneForestAfterBattle(Player* player)
 {
 	PlaySound(NULL, 0, 0);
-	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	PlaySound(TEXT("Exploring.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	system("cls");
 	player->AddItem(player->CreateArmour());
 	std::cout << "Well fought !\n"
@@ -1041,7 +1041,7 @@ void SceneMountains(Player* player, Enemy* enemy)
 void SceneMountainsVictory(Player* player)
 {
 	PlaySound(NULL, 0, 0);
-	PlaySound(TEXT("Exploring.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	PlaySound(TEXT("Exploring.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	system("cls");
 	std::cout << "This was a verry close fight, in the last moment the mighty DemiGod managed to take a good strike and end Anatos's life\.n"
 		"This is a big victory not only for you, but for the whole humankind!!!\n"
@@ -1096,10 +1096,42 @@ void SceneMountainsVictory(Player* player)
 	}
 }
 
+void FightSceneWrongChoose(Player* player, Enemy* enemy)
+{
+	int playerAttack, enemyAttack, playerHealth, enemyHealth;
+	playerAttack = player->Attack()*2;
+	enemyAttack = enemy->Attack();
+	playerHealth = player->getHealth()/2;
+	enemyHealth = enemy->getHealth();
+	do
+	{
+		enemyHealth -= playerAttack;
+		std::cout << "Enemy's health after you have attacked: " << enemyHealth << std::endl;
+		Sleep(100);
+		if (enemyHealth <= 0)
+			break;
+		playerHealth -= enemyAttack;
+		std::cout << "Your health after Enemy have attacked: " << playerHealth << std::endl;
+		if (playerHealth <= 0)
+			break;
+	} while (enemyHealth >= 0 || playerHealth >= 0);
+	std::cout << "Nice try my little fellow, but I am the king of dark, you can never take my throne alone!!!\n"
+		"                                             /  /  /\n"
+		"|\\/| |  | |__|  /\\  |__|  /\\  |__|  /\\      /  /  /\n"
+		"|  | \\__/ |  | /~~\\ |  | /~~\\ |  | /~~\\    .  .  . \n";
+	deadArt();
+
+	std::cout << "Press any key to continue...\n";
+	delete enemy;
+	std::string random;
+	std::cin.ignore();
+	std::cin >> random;
+}
+
 void SceneNatas(Player* player)
 {
 	PlaySound(NULL, 0, 0);
-	PlaySound(TEXT("EndGame.wav"), NULL, SND_ASYNC | SND_NOSTOP | SND_LOOP);
+	PlaySound(TEXT("EndGame.wav"), NULL, SND_FILENAME| SND_ASYNC | SND_NOSTOP | SND_LOOP);
 	std::cout << "Oh, my! Why do I hear Boss music?\n"
 		"I wonder what Rapahela talked about, \" find a friend\"\n"
 		"No!!!, it can't be, she spoke about Vlad the Impaler\n"
@@ -1122,9 +1154,10 @@ void SceneNatas(Player* player)
 		goOn = false;
 		system("cls");
 		std::cout << "After walking alone in the Carpathian Mountains you eventually found Natas, extremly fussy because ou killed his loyal pet Anatos\n"
+			"He casted an ancient curse, called Medal Reverse, wich took you half of your health, but the good part is that the curse doubled your powers\n"
 			"And a fight begun!!!\n";
-		Sleep(1000);
-			FightScene(player, GenerateEnemy(player)) ;
+		Sleep(15000);
+			FightSceneWrongChoose(player, GenerateEnemy(player)) ;
 		break;
 	default:
 		std::cout << "Wrong key, try again\n";
@@ -1430,13 +1463,3 @@ void EndGameFight(Player* player, Enemy* enemy, std::shared_ptr<Enemy> Vlad)
 		EndGame();
 	}
 }
-
-
-
-
-
-
-
-
-
-
