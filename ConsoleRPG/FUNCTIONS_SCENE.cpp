@@ -1185,7 +1185,7 @@ void SceneFinalFight()
 	std::string random;
 	std::cin.ignore();
 	std::cin >> random;
-	std::cout << "The cruel Impaler, took a step out of his tomb, asking:\n";
+	std::cout << "The cruel Impaler, took a step out of his tomb, asking:\n"; Sleep(300);
 	std::cout << "                                                                     ..........       ......'''''''''''....                                               \n";Sleep(200);
 		std::cout << "                                                                           .........         .............                                            \n"; Sleep(200);
 		std::cout << "                                 ..,:cloooool:;'.                                ........                                                             \n"; Sleep(200);
