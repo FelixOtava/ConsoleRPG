@@ -2,7 +2,7 @@
 
 Theif::Theif()
 {
-	this->name = "Rei (a misery burgler and child rapist)";
+	this->name = "Rei";
 	health = 300;
 	attackDamage = 35;
 }
@@ -10,5 +10,5 @@ Theif::Theif()
 
 void Theif::PrintEnemyStats()
 {
-	std::cout << "Enemy name: " << name << " Health: " << health << " AttackDamage: " << attackDamage << std::endl;
+	std::cout << "Enemy name: " << name <<"(a misery burgler and child rapist)" << " Health: " << health << " AttackDamage: " << attackDamage << std::endl;
 }

@@ -12,12 +12,12 @@ void FightScene(Player* player, Enemy* enemy)
 	do
 	{
 		enemyHealth -= playerAttack;
-		std::cout << "Enemy's health after you have attacked: " << enemyHealth << std::endl;
+		std::cout <<enemy->getEnemyName() <<"'s health after " << player->getPlayerName() <<"'s attack: " << enemyHealth << std::endl;
 		Sleep(200);
 		if (enemyHealth <= 0)
 			break;
 		playerHealth -= enemyAttack;
-		std::cout << "Your health after Enemy have attacked: " << playerHealth << std::endl;
+		std::cout <<player->getPlayerName()<< "'s health after "<<enemy->getEnemyName() <<"'s attack: " << playerHealth << std::endl;
 		Sleep(200);
 		if (playerHealth <= 0)
 			break;
@@ -467,13 +467,13 @@ void FightSceneThief(Player* player, Enemy* enemy)
 	do
 	{
 		enemyHealth -= playerAttack;
-		std::cout <<"Enemy's health after you have attacked: " << enemyHealth << std::endl;
-		//Sleep(100);
+		std::cout <<enemy->getEnemyName()<<"'s health after "<<player->getPlayerName() <<"'s attack: " << enemyHealth << std::endl;
+		Sleep(200);
 		if (enemyHealth <= 0)
 			break;
 		playerHealth -= enemyAttack;
-		std::cout <<"Your health after Enemy have attacked: " << playerHealth << std::endl;
-		//Sleep(100);
+		std::cout <<player->getPlayerName() << "'s health after "<<enemy->getEnemyName()<< "'s attack: " << playerHealth << std::endl;
+		Sleep(200);
 		if (playerHealth <= 0)
 			break;
 	} while (enemyHealth >=0 || playerHealth >=0);
@@ -1106,12 +1106,12 @@ void FightSceneWrongChoose(Player* player, Enemy* enemy)
 	do
 	{
 		enemyHealth -= playerAttack;
-		std::cout << "Enemy's health after you have attacked: " << enemyHealth << std::endl;
+		std::cout << enemy->getEnemyName()<<"'s health after "<<player->getPlayerName()<< " attacd: " << enemyHealth << std::endl;
 		Sleep(100);
 		if (enemyHealth <= 0)
 			break;
 		playerHealth -= enemyAttack;
-		std::cout << "Your health after Enemy have attacked: " << playerHealth << std::endl;
+		std::cout << player->getPlayerName()<<"'s health after "<<enemy->getEnemyName()<< " attack : " << playerHealth << std::endl;
 		if (playerHealth <= 0)
 			break;
 	} while (enemyHealth >= 0 || playerHealth >= 0);
@@ -1180,8 +1180,7 @@ void SceneFinalFight()
 	std::cout << "Once arrived to Bran Castel, the DemiGod, get straight to the crypt and initialise the ancient ritual\n"
 		"After ending the ritual, a thunder like sound was heard\n"
 		"And the big dor in front of him started to creak\n"
-		"Press anithing to continue... "
-		"For a better experience make shure your console is in full screen mode";
+		"For a better experience make shure your console is in full screen mode :: Press anithing to continue... ";
 	std::string random;
 	std::cin.ignore();
 	std::cin >> random;
@@ -1418,11 +1417,11 @@ void EndGameFight(Player* player, Enemy* enemy, std::shared_ptr<Enemy> Vlad)
 				do
 				{
 					enemyHealth -= mainCharacterAttack;
-					std::cout << "Enemy's health after DemiGod's attack: " << enemyHealth << std::endl; Sleep(50);
+					std::cout <<enemy->getEnemyName() <<"'s health after "<<player->getPlayerName()<< "'s attack: " << enemyHealth << std::endl; Sleep(50);
 					if (enemyHealth <= 0)
 						break;
 					mainCharacterHealth -= enemyAttack;
-					std::cout << "DemiGod Health after Natas's attack: " << mainCharacterHealth << std::endl; 
+					std::cout <<player->getPlayerName()<< "'s health after "<<enemy->getEnemyName()<< "'s attack: " << mainCharacterHealth << std::endl; 
 					i++;
 					if (mainCharacterHealth <= 0)
 						break;
@@ -1433,18 +1432,18 @@ void EndGameFight(Player* player, Enemy* enemy, std::shared_ptr<Enemy> Vlad)
 		{
 			do {
 				enemyHealth -= sideCharacterAttack;
-				std::cout << "Natas's health after Vlad the Impaler's attack: " << enemyHealth << std::endl;
+				std::cout << enemy->getEnemyName()<<"'s health after "<<Vlad->getEnemyName() <<"'s attack: " << enemyHealth << std::endl;
 
 				if (enemyHealth <= 0)
 					break;
 				
 				enemyHealth -= mainCharacterAttack;
-				std::cout << "Natas's health after DemiGod's attack: " << enemyHealth << std::endl;
+				std::cout << enemy->getEnemyName()<< "'s health after " << player->getPlayerName() << "'s attack: " << enemyHealth << std::endl;
 
 				if (enemyHealth <= 0)
 					break;
 				sideCharacterHealth -= enemyAttack;
-				std::cout << "Vlad the Impaler's Health after Natas's attack: " << sideCharacterHealth << std::endl; Sleep(50);
+				std::cout <<Vlad->getEnemyName()<< "'s Health after " << enemy->getEnemyName() << "'s attack: " << sideCharacterHealth << std::endl; Sleep(50);
 				i++;
 				if (sideCharacterHealth <= 0)
 					break;
